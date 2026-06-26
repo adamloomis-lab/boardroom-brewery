@@ -8,3 +8,4 @@ dist-server
 .vite
 *.tsbuildinfo
 _private-source
+_research/
