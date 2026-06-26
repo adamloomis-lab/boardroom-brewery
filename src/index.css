@@ -1,0 +1,256 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Boardroom Brewery — Sora display + Space Grotesk caps labels + Hanken body */
+  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-label: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+  /* Industrial near-black surfaces */
+  --color-background: #131313;
+  --color-surface: #1c1b1b;
+  --color-surface-dim: #1c1b1b;
+  --color-surface-container: #201f1f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-card: #1a1a1a;
+
+  /* Amber — primary CTA / highlight (token kept as `gold` so scaffold classes hold) */
+  --color-gold: #f6ae2d;
+  --color-gold-dark: #d9941f;
+  --color-gold-light: #f9c266;
+  --color-on-gold: #2e1d00;
+
+  /* Warm amber accent for icons/hovers */
+  --color-ember: #d99e32;
+  --color-ember-dark: #b9770f;
+
+  /* Light parchment / off-white typography */
+  --color-cream: #f4ede0;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #d4c4b0;
+  --color-muted: #9d8f7c;
+
+  --color-outline: #504535;
+  --color-outline-variant: #2a2a2a;
+  --color-error: #ffb4ab;
+
+  /* Type scale — Cormorant display / Inter body */
+  --text-display-xl: 88px;
+  --text-display-xl--line-height: 1.02;
+  --text-display-xl--letter-spacing: 0.005em;
+  --text-display-xl--font-weight: 600;
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 1.05;
+  --text-display-lg--font-weight: 600;
+  --text-display-lg-mobile: 42px;
+  --text-display-lg-mobile--line-height: 1.08;
+  --text-display-lg-mobile--font-weight: 600;
+  --text-headline-lg: 46px;
+  --text-headline-lg--line-height: 1.12;
+  --text-headline-lg--font-weight: 600;
+  --text-headline-md: 34px;
+  --text-headline-md--line-height: 1.2;
+  --text-headline-md--font-weight: 600;
+  --text-headline-sm: 24px;
+  --text-headline-sm--line-height: 1.3;
+  --text-headline-sm--font-weight: 600;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.7;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.7;
+  --text-label-lg: 13px;
+  --text-label-lg--line-height: 1.2;
+  --text-label-lg--letter-spacing: 0.22em;
+  --text-label-lg--font-weight: 500;
+  --text-label-sm: 11px;
+  --text-label-sm--line-height: 1.2;
+  --text-label-sm--letter-spacing: 0.24em;
+  --text-label-sm--font-weight: 500;
+
+  --spacing-section-gap: 112px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 56px;
+
+  --radius-DEFAULT: 4px;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* Jost runs geometric/light — give body copy a touch more presence. */
+  p {
+    font-weight: 400;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.005em;
+  }
+  a, button:not(:disabled), [role='button'] {
+    cursor: pointer;
+  }
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-on-gold);
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: var(--spacing-margin-mobile);
+  }
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: var(--spacing-margin-desktop);
+    }
+  }
+  /* Eyebrow label — uppercase tracked gold caption */
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--text-label-lg);
+    line-height: var(--text-label-lg--line-height);
+    letter-spacing: var(--text-label-lg--letter-spacing);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  /* Thin gold rule used under section headings */
+  .gold-rule {
+    display: inline-block;
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-gold), transparent);
+  }
+  /* Ember check-mark bullet list */
+  .check-list li {
+    position: relative;
+    padding-left: 1.75rem;
+  }
+  .check-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 9999px;
+    background-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(198, 160, 73, 0.18);
+  }
+}
+
+/* Soft vignette so dark hero text/logo stays legible over imagery/video */
+.smoke-overlay {
+  background: radial-gradient(
+    120% 90% at 50% 0%,
+    rgba(20, 17, 13, 0.3) 0%,
+    rgba(20, 17, 13, 0.72) 65%,
+    rgba(20, 17, 13, 0.95) 100%
+  );
+}
+
+/* Slow, subtle "Ken Burns" drift on dark hero / section background media —
+   gives the imagery quiet life without being distracting. Sits behind the
+   smoke-overlay/scrim so it never hurts text legibility. */
+.kenburns {
+  animation: osi-kenburns 28s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform;
+}
+@keyframes osi-kenburns {
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to { transform: scale(1.12) translate3d(0, -1.5%, 0); }
+}
+
+/* Parallax: JS (useParallax) writes --p (0..1 through-viewport progress) and
+   the element drifts vertically. Media using this should overflow its frame
+   (e.g. -inset-y, h-[120%]) so the drift never exposes an edge. */
+.parallax {
+  transform: translate3d(0, calc((var(--p, 0.5) - 0.5) * 2 * var(--p-amt, 28px)), 0);
+  will-change: transform;
+}
+
+/* ---- Scroll-reveal + entrance motion ---------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: osi-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .rise-1 { animation-delay: 0.08s; }
+  .rise-2 { animation-delay: 0.2s; }
+  .rise-3 { animation-delay: 0.32s; }
+  .rise-4 { animation-delay: 0.44s; }
+  .rise-5 { animation-delay: 0.56s; }
+  @keyframes osi-rise {
+    from { opacity: 0; transform: translateY(22px); filter: blur(3px); }
+    to { opacity: 1; transform: none; filter: blur(0); }
+  }
+
+  /* Below-the-fold reveals: gentle rise + faint scale + de-blur. */
+  .reveal-ready .reveal,
+  .reveal-ready .reveal-group > * {
+    opacity: 0;
+    transform: translateY(26px) scale(0.985);
+    filter: blur(3px);
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
+  }
+  .reveal-ready .reveal.is-visible,
+  .reveal-ready .reveal-group.is-visible > * {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(3) { transition-delay: 0.2s; }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(4) { transition-delay: 0.3s; }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(5) { transition-delay: 0.4s; }
+  .reveal-ready .reveal-group.is-visible > *:nth-child(6) { transition-delay: 0.5s; }
+
+  /* Gold heading rule "draws" in when its section reveals. */
+  .gold-rule {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+  }
+  .reveal-ready .reveal.is-visible .gold-rule,
+  .reveal-ready .gold-rule.is-visible {
+    transform: scaleX(1);
+  }
+}
+
+/* Reduced-motion / no-JS: everything fully visible and static. */
+@media (prefers-reduced-motion: reduce) {
+  .kenburns, .parallax { animation: none; transform: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* WCAG 2.4.7 keyboard focus */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ---- Lenis smooth scroll (high-end momentum scrolling) ----------------- */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+/* NOTE: intentionally omit `.lenis.lenis-smooth iframe { pointer-events:none }`
+   so the Google map + Untappd menu iframes stay interactive. */
