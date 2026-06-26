@@ -83,6 +83,10 @@ export default function Footer() {
           <span className="flex items-center gap-4 text-center">
             <span>You must be 21 or older. Please enjoy responsibly.</span>
             <span className="hidden sm:inline text-outline-variant">|</span>
+            <Link href="/privacy" className="transition-colors hover:text-gold">Privacy</Link>
+            <span className="hidden sm:inline text-outline-variant">·</span>
+            <Link href="/terms" className="transition-colors hover:text-gold">Terms</Link>
+            <span className="hidden sm:inline text-outline-variant">·</span>
             <Link href="/accessibility" className="transition-colors hover:text-gold">Accessibility</Link>
           </span>
           <span>
