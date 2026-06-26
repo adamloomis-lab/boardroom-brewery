@@ -19,6 +19,7 @@ import PrivateEvents from './pages/PrivateEvents'
 import Gallery from './pages/Gallery'
 import QRScan from './pages/QRScan'
 import Contact from './pages/Contact'
+import Accessibility from './pages/Accessibility'
 import NotFound from './pages/NotFound'
 
 function Shell() {
@@ -49,6 +50,7 @@ function Shell() {
           <Route path="/gallery" component={Gallery} />
           <Route path="/qrscan" component={QRScan} />
           <Route path="/contact" component={Contact} />
+          <Route path="/accessibility" component={Accessibility} />
           <Route component={NotFound} />
         </Switch>
       </main>

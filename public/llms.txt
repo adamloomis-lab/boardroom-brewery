@@ -1,0 +1,26 @@
+# Boardroom Brewery
+
+> Small-batch beer, natural-style wines, and hard seltzers with clean flavors — a modern South Bay taproom near LAX, built for great nights and private events.
+
+## Business facts
+- Business: Boardroom Brewery
+- Location: El Segundo, CA
+- Phone: (310) 510-6698 ext. 211
+- Email: forchi@boardroomatarena.com
+- Service area: El Segundo, CA, South Bay, Los Angeles
+- Hours: Tuesday: 16:00-20:00 | Wednesday, Thursday: 16:00-21:00 | Friday: 15:00-22:00 | Saturday: 12:00-22:00 | Sunday: 12:00-20:00
+
+## Key pages
+- https://boardroom-at-arena.netlify.app/
+- https://boardroom-at-arena.netlify.app/beer/
+- https://boardroom-at-arena.netlify.app/wine/
+- https://boardroom-at-arena.netlify.app/taproom/
+- https://boardroom-at-arena.netlify.app/events/
+- https://boardroom-at-arena.netlify.app/run-club/
+- https://boardroom-at-arena.netlify.app/world-cup/
+- https://boardroom-at-arena.netlify.app/private-events/
+- https://boardroom-at-arena.netlify.app/gallery/
+- https://boardroom-at-arena.netlify.app/qrscan/
+
+## Contact
+Call (310) 510-6698 ext. 211 or email forchi@boardroomatarena.com for more information.

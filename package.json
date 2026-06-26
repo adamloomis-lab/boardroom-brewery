@@ -1,0 +1,28 @@
+{
+  "name": "boardroom-brewery",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5198 --strictPort",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server --emptyOutDir && node scripts/prerender.mjs && node scripts/check-seo.mjs",
+    "preview": "vite preview --port 5198 --strictPort"
+  },
+  "dependencies": {
+    "framer-motion": "^12.40.0",
+    "lenis": "^1.3.23",
+    "lucide-react": "^0.453.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "wouter": "^3.3.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "@types/react": "^19.2.1",
+    "@types/react-dom": "^19.2.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "tailwindcss": "^4.1.14",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7"
+  }
+}
