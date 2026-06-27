@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
+      <section id="hero" className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
         <video className="absolute inset-0 h-full w-full object-cover brightness-[1.18] contrast-[1.03]" autoPlay muted loop playsInline poster="/media/gallery/br-01.jpg" aria-hidden="true">
           <source src="/media/video/brewery-1.mp4" type="video/mp4" />
         </video>
