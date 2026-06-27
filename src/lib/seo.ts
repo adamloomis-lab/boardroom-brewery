@@ -121,7 +121,7 @@ export function getPageMeta(rawPath: string): PageMeta {
     case '/beer':
       return {
         title: 'Beer & Seltzer on Tap | Boardroom Brewery, El Segundo',
-        description: 'Our live tap list — small-batch craft beer and house-crafted hard seltzers, brewed on-site in El Segundo. See what is pouring right now.',
+        description: 'Our live tap list: small-batch craft beer and house-crafted hard seltzers, brewed on-site in El Segundo. See what is pouring right now.',
         canonical: pageUrl('/beer'),
         ogImage,
         jsonLd: [...base, { '@context': 'https://schema.org', '@type': 'Menu', name: 'Boardroom Brewery Tap List', url: pageUrl('/beer') }, crumb('Beer', '/beer')],
@@ -129,7 +129,7 @@ export function getPageMeta(rawPath: string): PageMeta {
     case '/wine':
       return {
         title: 'Natural-Style Wine | Boardroom Brewery, El Segundo',
-        description: 'Natural-style, low-intervention California wines from the Lodi AVA near Ripon — minimal additives, maximum character. Now pouring our Cabernet Sauvignon offerings.',
+        description: 'Natural-style, low-intervention California wines from the Lodi AVA near Ripon: minimal additives, maximum character. Now pouring our Cabernet Sauvignon offerings.',
         canonical: pageUrl('/wine'),
         ogImage,
         jsonLd: [...base, crumb('Wine', '/wine')],
@@ -137,7 +137,7 @@ export function getPageMeta(rawPath: string): PageMeta {
     case '/taproom':
       return {
         title: 'The Taproom | Boardroom Brewery, El Segundo (Near LAX)',
-        description: 'A modern South Bay taproom in El Segundo, minutes from LAX — rotating craft beer & seltzers, a relaxed atmosphere, kid- and dog-friendly. Open six days a week.',
+        description: 'A modern South Bay taproom in El Segundo, minutes from LAX, with rotating craft beer & seltzers, a relaxed atmosphere, kid- and dog-friendly. Open six days a week.',
         canonical: pageUrl('/taproom'),
         ogImage,
         jsonLd: [...base, crumb('Taproom', '/taproom')],
@@ -152,8 +152,8 @@ export function getPageMeta(rawPath: string): PageMeta {
       }
     case '/run-club':
       return {
-        title: 'Run Club | Boardroom Brewery, El Segundo — Wednesdays 6PM',
-        description: 'Boardroom Run Club: every Wednesday at 6PM, a 5K out to The Strand and back, led by club lead Daniel. Walkers welcome — the beers will be waiting.',
+        title: 'Run Club | Boardroom Brewery, El Segundo, Wednesdays 6PM',
+        description: 'Boardroom Run Club: every Wednesday at 6PM, a 5K out to The Strand and back, led by club lead Daniel. Walkers welcome, and the beers will be waiting.',
         canonical: pageUrl('/run-club'),
         ogImage,
         jsonLd: [...base, crumb('Run Club', '/run-club')],
@@ -169,7 +169,7 @@ export function getPageMeta(rawPath: string): PageMeta {
     case '/private-events':
       return {
         title: 'Private Events & Brewery Event Space Near LAX | Boardroom Brewery',
-        description: 'Book your next event at Boardroom Brewery in El Segundo, minutes from LAX. Corporate offsites, birthdays, showers, holiday parties and more — indoor & outdoor space.',
+        description: 'Book your next event at Boardroom Brewery in El Segundo, minutes from LAX. Corporate offsites, birthdays, showers, holiday parties and more, with indoor & outdoor space.',
         canonical: pageUrl('/private-events'),
         ogImage,
         jsonLd: [...base, crumb('Private Events', '/private-events')],
@@ -177,14 +177,14 @@ export function getPageMeta(rawPath: string): PageMeta {
     case '/gallery':
       return {
         title: 'Gallery | Boardroom Brewery, El Segundo',
-        description: 'Inside Boardroom Brewery — the taproom, the beer, the patio, the events. A look around our El Segundo craft brewery and event space.',
+        description: 'Inside Boardroom Brewery: the taproom, the beer, the patio, the events. A look around our El Segundo craft brewery and event space.',
         canonical: pageUrl('/gallery'),
         ogImage,
         jsonLd: [...base, { '@context': 'https://schema.org', '@type': 'ImageGallery', name: 'Boardroom Brewery Gallery', url: pageUrl('/gallery') }, crumb('Gallery', '/gallery')],
       }
     case '/qrscan':
       return {
-        title: 'Welcome | Boardroom Brewery — Menu, Events & Directions',
+        title: 'Welcome | Boardroom Brewery: Menu, Events & Directions',
         description: 'Tap through to the Boardroom Brewery menu, wine list, food-truck schedule, events, and directions. A craft brewery and event space in El Segundo, near LAX.',
         canonical: pageUrl('/qrscan'),
         ogImage,

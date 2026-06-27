@@ -9,7 +9,7 @@ export const company = {
   tagline: 'Crafted at the Arena',
   seoTagline: 'Craft Brewery & Event Space in El Segundo, CA',
   shortBlurb:
-    'Small-batch beer, natural-style wines, and hard seltzers with clean flavors — a modern South Bay taproom near LAX, built for great nights and private events.',
+    'Small-batch beer, natural-style wines, and hard seltzers with clean flavors. A modern South Bay taproom near LAX, built for great nights and private events.',
   nearLax: 'In El Segundo, just minutes from LAX and the South Bay.',
   phone: '(310) 510-6698 ext. 211',
   phoneHref: 'tel:+13105106698,211',
@@ -37,21 +37,21 @@ export const company = {
 // runs its own daily schedule — see worldcup.ts.
 export const hours = [
   { day: 'Monday', short: 'Mon', dow: 1, time: 'Closed', closed: true },
-  { day: 'Tuesday', short: 'Tue', dow: 2, time: '4:00 pm – 8:00 pm' },
-  { day: 'Wednesday', short: 'Wed', dow: 3, time: '4:00 pm – 9:00 pm' },
-  { day: 'Thursday', short: 'Thu', dow: 4, time: '4:00 pm – 9:00 pm' },
-  { day: 'Friday', short: 'Fri', dow: 5, time: '3:00 pm – 10:00 pm' },
-  { day: 'Saturday', short: 'Sat', dow: 6, time: '12:00 pm – 10:00 pm' },
-  { day: 'Sunday', short: 'Sun', dow: 0, time: '12:00 pm – 8:00 pm' },
+  { day: 'Tuesday', short: 'Tue', dow: 2, time: '4:00 pm - 8:00 pm' },
+  { day: 'Wednesday', short: 'Wed', dow: 3, time: '4:00 pm - 9:00 pm' },
+  { day: 'Thursday', short: 'Thu', dow: 4, time: '4:00 pm - 9:00 pm' },
+  { day: 'Friday', short: 'Fri', dow: 5, time: '3:00 pm - 10:00 pm' },
+  { day: 'Saturday', short: 'Sat', dow: 6, time: '12:00 pm - 10:00 pm' },
+  { day: 'Sunday', short: 'Sun', dow: 0, time: '12:00 pm - 8:00 pm' },
 ]
 
 export const hoursCompact = [
   { day: 'Monday', time: 'Closed' },
-  { day: 'Tue', time: '4 PM – 8 PM' },
-  { day: 'Wed – Thu', time: '4 PM – 9 PM' },
-  { day: 'Friday', time: '3 PM – 10 PM' },
-  { day: 'Saturday', time: '12 PM – 10 PM' },
-  { day: 'Sunday', time: '12 PM – 8 PM' },
+  { day: 'Tue', time: '4 PM - 8 PM' },
+  { day: 'Wed - Thu', time: '4 PM - 9 PM' },
+  { day: 'Friday', time: '3 PM - 10 PM' },
+  { day: 'Saturday', time: '12 PM - 10 PM' },
+  { day: 'Sunday', time: '12 PM - 8 PM' },
 ]
 
 // Schema.org openingHoursSpecification (Monday omitted = closed)
@@ -83,7 +83,7 @@ export const beers: Beer[] = [
     tag: 'Featured Pour',
     style: 'New England IPA',
     notes:
-      'Soft, juicy, and tropical — a pillowy mouthfeel loaded with citrus and stone-fruit hop character. Our most-poured hazy and the quintessential El Segundo pour.',
+      'Soft, juicy, and tropical, a pillowy mouthfeel loaded with citrus and stone-fruit hop character. Our most-poured hazy and the quintessential El Segundo pour.',
     flavors: ['Juicy', 'Tropical', 'Soft'],
     image: '/media/beer/hazy-juicy-ipa.jpg',
     featured: true,
@@ -130,30 +130,30 @@ export const beers: Beer[] = [
 // Wine program — natural-style, low-intervention wines (Lodi AVA, Ripon CA).
 // ---------------------------------------------------------------------------
 export const wineIntro =
-  'At Boardroom Brewery in El Segundo, our wines reflect the same creativity and care that define our craft beers and seltzers. We focus on natural-style, low-intervention wines — thoughtfully sourced from independent producers across California. Every pour is guided by the same philosophy: minimal additives, maximum character, and an experience rooted in authenticity.'
+  'At Boardroom Brewery in El Segundo, our wines reflect the same creativity and care that define our craft beers and seltzers. We focus on natural-style, low-intervention wines, thoughtfully sourced from independent producers across California. Every pour is guided by the same philosophy: minimal additives, maximum character, and an experience rooted in authenticity.'
 
 export const wineRegion = {
-  name: 'Lodi AVA — Ripon, California',
+  name: 'Lodi AVA, Ripon, California',
   blurb:
     'Grown in the sandy-loam soils of the Lodi region, where warm Central Valley days meet cool Delta breezes. These conditions shape expressive, balanced, low-intervention wines of real character.',
 }
 
 export const wines = [
   {
-    name: '1st Offering — Cabernet Sauvignon',
+    name: '1st Offering: Cabernet Sauvignon',
     released: 'Released October 23, 2025',
-    status: 'Sold out — only 108 bottles',
+    status: 'Sold out, only 108 bottles',
     soldOut: true,
     notes:
-      'A 100% California Cabernet Sauvignon. Fruit-forward, easy to drink and fun to enjoy, with notes of stone fruit, cherry, even cranberry. Let it open up and you find violet florals. Slightly jammy, very drinkable, with low tannin — none of that dry mouth so traditional to California Cabernet.',
+      'A 100% California Cabernet Sauvignon. Fruit-forward, easy to drink and fun to enjoy, with notes of stone fruit, cherry, even cranberry. Let it open up and you find violet florals. Slightly jammy, very drinkable, with low tannin, none of that dry mouth so traditional to California Cabernet.',
   },
   {
-    name: '2nd Offering — Cabernet Sauvignon',
+    name: '2nd Offering: Cabernet Sauvignon',
     released: 'Released February 3, 2026',
-    status: '600 bottles in this batch — don’t miss it',
+    status: '600 bottles in this batch. Don’t miss it',
     soldOut: false,
     notes:
-      'Another 100% California Cabernet that hits classic big-Cali Cab on the nose — ripe blackberry jam, dark cherry, and plum compote leap from the glass. Subtle vanilla and baking spice from American-oak aging, with delicate hints of cassis and dried herbs. Inviting and fruit-forward without crossing into cloying territory. Finishes dry and leaves you wanting more.',
+      'Another 100% California Cabernet that hits classic big-Cali Cab on the nose: ripe blackberry jam, dark cherry, and plum compote leap from the glass. Subtle vanilla and baking spice from American-oak aging, with delicate hints of cassis and dried herbs. Inviting and fruit-forward without crossing into cloying territory. Finishes dry and leaves you wanting more.',
   },
 ] as const
 
@@ -169,7 +169,7 @@ export const runClub = {
   leader:
     'Runs are led by club lead Daniel, who is on his way to running 50 marathons by the time he turns 50.',
   walkers:
-    'Walkers welcome! We understand walking might be the right pace — we welcome you and have a walking crew too. The beers will be waiting.',
+    'Walkers welcome! We understand walking might be the right pace. We welcome you and have a walking crew too. The beers will be waiting.',
 }
 
 // ---------------------------------------------------------------------------
@@ -178,7 +178,7 @@ export const runClub = {
 export const privateEvents = {
   headline: 'Brewery Event Space in Los Angeles, Near LAX',
   blurb:
-    'Host your next event at Boardroom Brewery — a modern craft brewery and event space in El Segundo, just minutes from LAX and the South Bay. A unique alternative to traditional event venues.',
+    'Host your next event at Boardroom Brewery, a modern craft brewery and event space in El Segundo, just minutes from LAX and the South Bay. A unique alternative to traditional event venues.',
   eventTypes: [
     'Corporate events & team offsites',
     'Birthday parties & celebrations',
@@ -218,7 +218,7 @@ export const events = [
     title: 'Wednesday Run Club',
     when: 'Wednesdays · 6:00 PM',
     tag: 'Weekly',
-    desc: 'A 5K out to The Strand and back, led by club lead Daniel. Walkers welcome — beers waiting at the finish.',
+    desc: 'A 5K out to The Strand and back, led by club lead Daniel. Walkers welcome, beers waiting at the finish.',
   },
   {
     title: 'Rotating Food Trucks',

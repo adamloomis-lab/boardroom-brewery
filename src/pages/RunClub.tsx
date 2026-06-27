@@ -17,7 +17,7 @@ export default function RunClub() {
         <div className="container-x relative z-10 pt-24 text-center">
           <p className="eyebrow rise rise-1">Wednesdays · 6PM</p>
           <h1 className="rise rise-2 mt-5 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">Run Club</h1>
-          <p className="rise rise-3 mx-auto mt-5 max-w-2xl text-body-lg text-on-surface">Lace up, log a few miles, and earn your pour. Everyone's welcome — the beers will be waiting.</p>
+          <p className="rise rise-3 mx-auto mt-5 max-w-2xl text-body-lg text-on-surface">Lace up, log a few miles, and earn your pour. Everyone's welcome, and the beers will be waiting.</p>
         </div>
       </section>
 

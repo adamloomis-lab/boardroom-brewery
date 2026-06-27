@@ -45,7 +45,7 @@ export default function Events() {
           </a>
           <div className="flex flex-col justify-between rounded-lg border border-outline-variant bg-surface-card p-8">
             <Truck size={28} className="text-gold" />
-            <div className="mt-6"><h3 className="font-display text-headline-sm font-bold text-cream">Rotating Food Trucks</h3><p className="mt-2 text-sm text-on-surface-variant">A different truck nearly every day — from Beachside Tacos to Freddy's Birria. Follow along on Instagram for the daily lineup.</p></div>
+            <div className="mt-6"><h3 className="font-display text-headline-sm font-bold text-cream">Rotating Food Trucks</h3><p className="mt-2 text-sm text-on-surface-variant">A different truck nearly every day, from Beachside Tacos to Freddy's Birria. Follow along on Instagram for the daily lineup.</p></div>
           </div>
         </div>
         <div className="container-x mt-14">

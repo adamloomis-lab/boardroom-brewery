@@ -10,7 +10,7 @@ export default function Logo({
 }) {
   const h = variant === 'stacked' ? 'h-10 sm:h-12' : 'h-7 sm:h-9'
   return (
-    <Link href="/" aria-label="Boardroom Brewery — home" className={`inline-flex ${className}`}>
+    <Link href="/" aria-label="Boardroom Brewery, home" className={`inline-flex ${className}`}>
       <img src="/media/boardroom-logo-white.png" alt="Boardroom Brewery" className={`${h} w-auto`} />
     </Link>
   )

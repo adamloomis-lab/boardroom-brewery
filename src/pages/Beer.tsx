@@ -62,7 +62,7 @@ export default function Beer() {
       {/* Live Untappd menu */}
       <section className="border-t border-outline-variant bg-surface py-20 md:py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="Live Menu" title="What's On Tap Right Now" intro="Pulled straight from our Untappd menu — always current." />
+          <SectionHeading eyebrow="Live Menu" title="What's On Tap Right Now" intro="Pulled straight from our Untappd menu, always current." />
           <div className="mx-auto mt-12 max-w-3xl rounded-lg border border-outline-variant bg-surface-card p-4 md:p-8">
             <div id="menu-container" className="untappd-embed min-h-[200px]" />
             <noscript><p className="text-center text-body-md text-on-surface-variant">Enable JavaScript to view our live tap list, or check us out on Untappd.</p></noscript>

@@ -123,7 +123,7 @@ export const worldCup: WCDay[] = [
     ],
   },
   {
-    date: 'Sunday, June 21 — Father’s Day',
+    date: 'Sunday, June 21, Father’s Day',
     open: 'Open 11:30 am',
     foodVendors: 'Bomba Delicacy 12pm',
     events: ['Father’s Day Game at SoFi 12pm'],
@@ -137,7 +137,7 @@ export const worldCup: WCDay[] = [
   {
     date: 'Monday, June 22',
     open: 'Closed',
-    events: ['Game Night 6–8pm'],
+    events: ['Game Night 6-8pm'],
     matches: [
       { teams: 'Argentina v Austria', group: 'Group J', venue: 'Dallas Stadium', time: '10:00am' },
       { teams: 'France v Bolivia/Iraq/Suriname', group: 'Group I', venue: 'Philadelphia Stadium', time: '2:00pm' },
@@ -214,25 +214,25 @@ export const worldCup: WCDay[] = [
     open: 'Open 11:30 am',
     foodVendors: 'Joes Sliders 12pm',
     matches: [
-      { teams: 'Match 73 — Group A runners-up v Group B runners-up', group: 'Round of 32', venue: 'SoFi Stadium', time: '12:00pm' },
+      { teams: 'Match 73: Group A runners-up v Group B runners-up', group: 'Round of 32', venue: 'SoFi Stadium', time: '12:00pm' },
     ],
   },
   {
     date: 'Monday, June 29',
     open: 'Closed',
     matches: [
-      { teams: 'Match 76 — Group C winners v Group F runners-up', group: 'Round of 32', venue: 'Houston Stadium', time: '10:00am' },
-      { teams: 'Match 74 — Group E winners v Group A/B/C/D/F third place', group: 'Round of 32', venue: 'Boston Stadium', time: '1:30pm' },
-      { teams: 'Match 75 — Group F winners v Group C runners-up', group: 'Round of 32', venue: 'Estadio Monterrey', time: '6:00pm' },
+      { teams: 'Match 76: Group C winners v Group F runners-up', group: 'Round of 32', venue: 'Houston Stadium', time: '10:00am' },
+      { teams: 'Match 74: Group E winners v Group A/B/C/D/F third place', group: 'Round of 32', venue: 'Boston Stadium', time: '1:30pm' },
+      { teams: 'Match 75: Group F winners v Group C runners-up', group: 'Round of 32', venue: 'Estadio Monterrey', time: '6:00pm' },
     ],
   },
   {
     date: 'Tuesday, June 30',
     open: 'Open 2 pm',
     matches: [
-      { teams: 'Match 78 — Group E runners-up v Group I runners-up', group: 'Round of 32', venue: 'Dallas Stadium', time: '10:00am' },
-      { teams: 'Match 77 — Group I winners v Group C/D/F/G/H third place', group: 'Round of 32', venue: 'New York', time: '2:00pm' },
-      { teams: 'Match 79 — Group A winners v Group C/E/F/H/I third place', group: 'Round of 32', venue: 'Mexico City', time: '6:00pm' },
+      { teams: 'Match 78: Group E runners-up v Group I runners-up', group: 'Round of 32', venue: 'Dallas Stadium', time: '10:00am' },
+      { teams: 'Match 77: Group I winners v Group C/D/F/G/H third place', group: 'Round of 32', venue: 'New York', time: '2:00pm' },
+      { teams: 'Match 79: Group A winners v Group C/E/F/H/I third place', group: 'Round of 32', venue: 'Mexico City', time: '6:00pm' },
     ],
   },
 ]
