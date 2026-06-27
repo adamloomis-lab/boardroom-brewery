@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'wouter'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, Phone } from 'lucide-react'
 import Logo from './Logo'
+import MobileMenu from './MobileMenu'
 import { company } from '../data/site'
 import { useScrolled } from '../hooks/useScrolled'
 
@@ -46,23 +47,11 @@ export default function Navbar() {
             Book Space
           </Link>
         </div>
-        <button type="button" onClick={() => setOpen((v) => !v)} className="text-cream xl:hidden" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
-          {open ? <X size={28} /> : <Menu size={28} />}
+        <button type="button" onClick={() => setOpen(true)} className="text-cream xl:hidden" aria-label="Open menu" aria-expanded={open}>
+          <Menu size={28} />
         </button>
       </nav>
-      {open && (
-        <div className="border-t border-outline-variant bg-background xl:hidden">
-          <div className="container-x flex flex-col gap-1 py-5">
-            {all.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="rounded px-2 py-3 font-label text-sm font-semibold uppercase tracking-[0.12em] text-cream hover:bg-surface-container">{l.label}</Link>
-            ))}
-            <a href={company.phoneHref} className="mt-2 inline-flex items-center justify-center gap-2 rounded border border-gold/50 px-5 py-3 font-label text-sm font-semibold uppercase tracking-[0.12em] text-gold">
-              <Phone size={17} /> {company.phone}
-            </a>
-            <Link href="/private-events" onClick={() => setOpen(false)} className="inline-flex items-center justify-center rounded bg-gold px-5 py-3 font-label text-sm font-bold uppercase tracking-[0.12em] text-on-gold">Book the Space</Link>
-          </div>
-        </div>
-      )}
+      <MobileMenu open={open} onClose={() => setOpen(false)} links={all} />
     </header>
   )
 }
