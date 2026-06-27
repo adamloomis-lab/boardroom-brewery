@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Link } from 'wouter'
 import { X, Phone, MapPin, Clock, ArrowRight, Instagram, Facebook } from 'lucide-react'
 import { company } from '../data/site'
@@ -19,9 +20,15 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden'
-      const id = requestAnimationFrame(() => setShown(true))
+      // Double rAF so the browser commits the initial (off-screen) frame before
+      // flipping to the shown state, guaranteeing the slide-in transition runs.
+      let inner = 0
+      const outer = requestAnimationFrame(() => {
+        inner = requestAnimationFrame(() => setShown(true))
+      })
       return () => {
-        cancelAnimationFrame(id)
+        cancelAnimationFrame(outer)
+        cancelAnimationFrame(inner)
         document.body.style.overflow = ''
       }
     }
@@ -31,7 +38,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
 
   if (!open) return null
 
-  return (
+  return createPortal(
     <div className="xl:hidden fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label="Menu">
       {/* Backdrop */}
       <button
@@ -83,8 +90,8 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                 key={l.href}
                 href={l.href}
                 onClick={onClose}
-                className={`group flex items-center justify-between border-b border-cream/10 py-4 font-display text-headline-md uppercase tracking-[0.01em] text-cream/90 transition-all duration-500 hover:text-gold ${
-                  shown ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'
+                className={`group flex items-center justify-between border-b border-cream/10 py-4 font-display text-headline-md uppercase tracking-[0.01em] text-cream/90 transition-transform duration-500 motion-reduce:transition-none hover:text-gold ${
+                  shown ? 'translate-x-0' : 'translate-x-6 motion-reduce:translate-x-0'
                 }`}
                 style={{ transitionDelay: `${120 + i * 60}ms` }}
               >
@@ -155,6 +162,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
