@@ -145,7 +145,7 @@ export function getPageMeta(rawPath: string): PageMeta {
     case '/events':
       return {
         title: 'Events & Food Trucks | Boardroom Brewery, El Segundo',
-        description: 'Run club, rotating food trucks, trivia and comedy nights, and World Cup watch parties at Boardroom Brewery in El Segundo. See what is on.',
+        description: 'Run club, rotating food trucks, trivia and comedy nights, and big-screen game days at Boardroom Brewery in El Segundo. See what is on.',
         canonical: pageUrl('/events'),
         ogImage,
         jsonLd: [...base, crumb('Events', '/events')],
@@ -157,14 +157,6 @@ export function getPageMeta(rawPath: string): PageMeta {
         canonical: pageUrl('/run-club'),
         ogImage,
         jsonLd: [...base, crumb('Run Club', '/run-club')],
-      }
-    case '/world-cup':
-      return {
-        title: 'World Cup Watch Parties | Boardroom Brewery, El Segundo',
-        description: 'Every 2026 World Cup match on the big screen all June, with daily food trucks and special events. Minutes from SoFi Stadium. See the full June schedule.',
-        canonical: pageUrl('/world-cup'),
-        ogImage,
-        jsonLd: [...base, crumb('World Cup', '/world-cup')],
       }
     case '/private-events':
       return {
@@ -210,5 +202,5 @@ export function getPageMeta(rawPath: string): PageMeta {
 }
 
 export const ALL_ROUTES: string[] = [
-  '/', '/beer', '/wine', '/taproom', '/events', '/run-club', '/world-cup', '/private-events', '/gallery', '/qrscan', '/contact',
+  '/', '/beer', '/wine', '/taproom', '/events', '/run-club', '/private-events', '/gallery', '/qrscan', '/contact',
 ]

@@ -1,4 +1,4 @@
-import { ArrowRight, Truck, Trophy, Footprints } from 'lucide-react'
+import { ArrowRight, Truck, Footprints } from 'lucide-react'
 import Button from '../components/Button'
 import { events, gallery } from '../data/site'
 import ImageAutoSlider from '../components/ImageAutoSlider'
@@ -33,11 +33,6 @@ export default function Events() {
 
       <section className="border-t border-outline-variant bg-surface py-20 md:py-24">
         <div className="container-x grid gap-6 md:grid-cols-3">
-          <a href="/world-cup" className="group flex flex-col justify-between rounded-lg border border-gold/40 bg-surface-card p-8 transition-colors hover:border-gold">
-            <Trophy size={28} className="text-gold" />
-            <div className="mt-6"><h3 className="font-display text-headline-sm font-bold text-cream">World Cup Watch Parties</h3><p className="mt-2 text-sm text-on-surface-variant">Every June match on the big screen. Minutes from SoFi.</p></div>
-            <span className="mt-5 inline-flex items-center gap-2 font-label text-[12px] font-bold uppercase tracking-widest text-gold">June Schedule <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /></span>
-          </a>
           <a href="/run-club" className="group flex flex-col justify-between rounded-lg border border-outline-variant bg-surface-card p-8 transition-colors hover:border-gold">
             <Footprints size={28} className="text-gold" />
             <div className="mt-6"><h3 className="font-display text-headline-sm font-bold text-cream">Wednesday Run Club</h3><p className="mt-2 text-sm text-on-surface-variant">6PM, 5K to The Strand and back. Walkers welcome.</p></div>

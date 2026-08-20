@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
-import { Beer, Grape, Truck, PartyPopper, Footprints, Trophy, MapPin, Instagram, Star, Check, ArrowRight } from 'lucide-react'
+import { Beer, Grape, Truck, PartyPopper, Footprints, MapPin, Instagram, Star, Check, ArrowRight } from 'lucide-react'
 import Logo from '../components/Logo'
 import { company, reviews } from '../data/site'
 
@@ -13,7 +13,6 @@ const links = [
   { label: 'Food Truck Schedule', icon: Truck, href: '/events' },
   { label: 'Book an Event', icon: PartyPopper, href: '/private-events' },
   { label: 'Run Club', icon: Footprints, href: '/run-club' },
-  { label: 'World Cup Schedule', icon: Trophy, href: '/world-cup' },
 ]
 
 function isExternal(h: string) { return /^https?:/.test(h) }

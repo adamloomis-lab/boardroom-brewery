@@ -13,7 +13,6 @@ const primary = [
   { label: 'Taproom', href: '/taproom' },
   { label: 'Events', href: '/events' },
   { label: 'Run Club', href: '/run-club' },
-  { label: 'World Cup', href: '/world-cup' },
 ]
 const all = [
   ...primary,

@@ -16,7 +16,6 @@ import Wine from './pages/Wine'
 import Taproom from './pages/Taproom'
 import Events from './pages/Events'
 import RunClub from './pages/RunClub'
-import WorldCup from './pages/WorldCup'
 import PrivateEvents from './pages/PrivateEvents'
 import Gallery from './pages/Gallery'
 import QRScan from './pages/QRScan'
@@ -49,7 +48,6 @@ function Shell() {
           <Route path="/taproom" component={Taproom} />
           <Route path="/events" component={Events} />
           <Route path="/run-club" component={RunClub} />
-          <Route path="/world-cup" component={WorldCup} />
           <Route path="/private-events" component={PrivateEvents} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/qrscan" component={QRScan} />

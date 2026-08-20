@@ -30,3 +30,10 @@
 
 [functions]
   directory = "netlify/functions"
+
+# The June 2026 World Cup window is over; the page is gone.
+[[redirects]]
+  from = "/world-cup"
+  to = "/events"
+  status = 301
+  force = true

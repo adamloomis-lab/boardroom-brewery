@@ -33,8 +33,7 @@ export const company = {
   },
 } as const
 
-// Real taproom hours (open 6 days, closed Mondays). The World Cup window in June
-// runs its own daily schedule — see worldcup.ts.
+// Real taproom hours (open 6 days, closed Mondays).
 export const hours = [
   { day: 'Monday', short: 'Mon', dow: 1, time: 'Closed', closed: true },
   { day: 'Tuesday', short: 'Tue', dow: 2, time: '4:00 pm - 8:00 pm' },
@@ -211,7 +210,7 @@ export const taproomFeatures = [
 ]
 
 // ---------------------------------------------------------------------------
-// Recurring / featured events (food trucks rotate daily; see World Cup page).
+// Recurring / featured events (food trucks rotate daily).
 // ---------------------------------------------------------------------------
 export const events = [
   {
@@ -231,12 +230,6 @@ export const events = [
     when: 'Select nights',
     tag: 'Taproom',
     desc: 'Hard Tech Trivia, comedy shows, and game nights through the month. Kid- and dog-friendly, always.',
-  },
-  {
-    title: 'World Cup Watch Parties',
-    when: 'June 2026',
-    tag: 'Featured',
-    desc: 'Every match on the big screen all month, with daily food trucks and special events. Minutes from SoFi Stadium.',
   },
 ]
 

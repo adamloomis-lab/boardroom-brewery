@@ -17,7 +17,6 @@
 - https://boardroom-at-arena.netlify.app/taproom/
 - https://boardroom-at-arena.netlify.app/events/
 - https://boardroom-at-arena.netlify.app/run-club/
-- https://boardroom-at-arena.netlify.app/world-cup/
 - https://boardroom-at-arena.netlify.app/private-events/
 - https://boardroom-at-arena.netlify.app/gallery/
 - https://boardroom-at-arena.netlify.app/qrscan/

@@ -6,7 +6,6 @@ const offerings = [
   'Rotating Food Trucks',
   'Private Events',
   'Run Club',
-  'World Cup Watch Parties',
   'Trivia & Comedy',
   'Locally Sourced',
   'Dog & Kid Friendly',
