@@ -24,7 +24,7 @@ export default function Marquee() {
         {doubled.map((t, i) => (
           <span key={i} className="flex items-center whitespace-nowrap">
             <span className="px-7 font-display text-2xl font-bold text-cream md:text-[28px]">{t}</span>
-            <span className="text-xl text-gold" aria-hidden="true">✦</span>
+            <span className="inline-block h-1.5 w-1.5 bg-gold" aria-hidden="true" />
           </span>
         ))}
       </div>
