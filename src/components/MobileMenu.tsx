@@ -80,7 +80,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           </div>
 
           {/* Trust badge with pulsing amber dot */}
-          <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-gold px-3 py-1.5 font-label text-[11px] font-bold uppercase tracking-[0.16em] text-on-gold">
+          <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-[3px] bg-gold px-3 py-1.5 font-label text-[11px] font-bold uppercase tracking-[0.16em] text-on-gold">
             <span className="h-1.5 w-1.5 rounded-full bg-on-gold animate-pulse" /> Craft Beer + Taproom
           </span>
 

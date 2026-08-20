@@ -54,7 +54,7 @@ export default function Reviews() {
   return (
     <section className="py-24 md:py-32">
       <div className="container-x">
-        <p className="eyebrow text-center">From Our Guests</p>
+        <h2 className="text-center font-display text-headline-md font-bold text-cream">From Our Guests</h2>
         <h2 className="mt-4 text-center font-display text-headline-lg font-bold text-cream md:text-[46px]">Loved in the Gundo</h2>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
           <span className="font-display text-headline-md font-bold text-gold">{rating.toFixed(1)}</span>
@@ -76,7 +76,7 @@ export default function Reviews() {
       <div className="rev-marquee rev-mask mt-12 overflow-hidden">
         <div className="rev-track flex w-max gap-5">
           {[...cards, ...cards].map((r, i) => (
-            <figure key={i} className="flex w-[300px] shrink-0 flex-col rounded-xl border border-outline-variant bg-surface-card p-6 md:w-[360px]">
+            <figure key={i} className="flex w-[300px] shrink-0 flex-col rounded-[3px] border border-outline-variant bg-surface-card p-6 md:w-[360px]">
               <div className="mb-3 flex items-center justify-between">
                 <Stars n={r.rating} />
                 {r.when && <span className="font-label text-[10px] uppercase tracking-[0.12em] text-muted">{r.when}</span>}

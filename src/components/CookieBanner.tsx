@@ -28,7 +28,7 @@ export default function CookieBanner() {
     <div
       role="region"
       aria-label="Cookie consent"
-      className="fixed bottom-3 left-3 right-3 z-[200] mx-auto max-w-2xl rounded-lg border border-gold/20 bg-surface px-5 py-4 shadow-xl"
+      className="fixed bottom-3 left-3 right-3 z-[200] mx-auto max-w-2xl rounded-[3px] border border-gold/20 bg-surface px-5 py-4 shadow-xl"
     >
       <p className="text-sm text-on-surface-variant">
         This site uses cookies to keep things running smoothly. We never sell your data.{' '}

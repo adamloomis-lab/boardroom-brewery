@@ -30,7 +30,7 @@ export default function AgeGate() {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 px-5 backdrop-blur" role="dialog" aria-modal="true" aria-labelledby="agegate-title">
-      <div className="w-full max-w-md rounded-xl border border-outline-variant bg-surface-card p-8 text-center shadow-2xl sm:p-10">
+      <div className="w-full max-w-md rounded-[3px] border border-outline-variant bg-surface-card p-8 text-center shadow-2xl sm:p-10">
         <div className="flex justify-center"><Logo variant="stacked" /></div>
         <h2 id="agegate-title" className="mt-6 font-display text-headline-md font-bold text-cream">Are You 21 or Older?</h2>
         <p className="mt-3 text-body-md text-on-surface-variant">You must be of legal drinking age to enter Boardroom Brewery. Please verify your age to continue.</p>

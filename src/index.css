@@ -1,10 +1,20 @@
 @import 'tailwindcss';
 
+/* Clash Display, self hosted from the ALM font library. One variable file
+   covers every display weight; Hanken stays for body. Sora and Space
+   Grotesk are gone: both read as template stock. */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-display: swap;
+}
+
 @theme {
-  /* Boardroom Brewery — Sora display + Space Grotesk caps labels + Hanken body */
-  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  /* Boardroom Brewery: Clash Display headlines over Hanken Grotesk body. */
+  --font-display: 'Clash Display', ui-sans-serif, system-ui, sans-serif;
   --font-body: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
-  --font-label: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-label: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
 
   /* Industrial near-black surfaces */
   --color-background: #131313;
@@ -118,15 +128,6 @@
     }
   }
   /* Eyebrow label — uppercase tracked gold caption */
-  .eyebrow {
-    font-family: var(--font-body);
-    font-size: var(--text-label-lg);
-    line-height: var(--text-label-lg--line-height);
-    letter-spacing: var(--text-label-lg--letter-spacing);
-    font-weight: 500;
-    text-transform: uppercase;
-    color: var(--color-gold);
-  }
   /* Thin gold rule used under section headings */
   .gold-rule {
     display: inline-block;

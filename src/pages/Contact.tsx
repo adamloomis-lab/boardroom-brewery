@@ -49,8 +49,7 @@ export default function Contact() {
         <img src="/media/gallery/br-18.jpg" alt="Boardroom Brewery in El Segundo" className="kenburns absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/68" />
         <div className="container-x relative z-10 pt-24 text-center">
-          <p className="eyebrow rise rise-1">Come Visit</p>
-          <h1 className="rise rise-2 mt-5 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">Contact &amp; Directions</h1>
+          <h1 className="rise rise-2 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">Contact &amp; Directions</h1>
           <p className="rise rise-3 mx-auto mt-5 max-w-2xl text-body-lg text-on-surface">Find us in El Segundo, minutes from LAX. Stop in, or send a note and we'll get right back to you.</p>
         </div>
       </section>
@@ -58,7 +57,7 @@ export default function Contact() {
       <section className="py-20 md:py-24">
         <div className="container-x grid gap-14 lg:grid-cols-2">
           <div className="reveal">
-            <p className="eyebrow">Our Location</p>
+            <h3 className="font-display text-headline-sm font-bold text-cream">Our Location</h3>
             <h2 className="mt-4 font-display text-headline-lg font-bold text-cream">211 Arena Street</h2>
             <span className="gold-rule mt-5" />
             <ul className="mt-8 space-y-5 text-body-md">
@@ -70,18 +69,18 @@ export default function Contact() {
               <a href={company.social.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 w-11 items-center justify-center rounded border border-outline text-cream transition-colors hover:border-gold hover:text-gold" aria-label="Facebook"><Facebook size={18} /></a>
               <a href={company.social.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 w-11 items-center justify-center rounded border border-outline text-cream transition-colors hover:border-gold hover:text-gold" aria-label="Instagram"><Instagram size={18} /></a>
             </div>
-            <div className="mt-10 rounded-lg border border-outline-variant bg-surface-card p-7">
+            <div className="mt-10 rounded-[3px] border border-outline-variant bg-surface-card p-7">
               <div className="flex items-center gap-3"><Clock size={20} className="text-gold" /><h3 className="font-display text-headline-sm font-bold text-cream">Hours</h3></div>
               <HoursList className="mt-4 -mx-2" />
             </div>
           </div>
           <div className="reveal">
-            <div className="rounded-lg border border-outline-variant bg-surface-card p-8 md:p-10">
-              <p className="eyebrow">Send a Message</p>
+            <div className="rounded-[3px] border border-outline-variant bg-surface-card p-8 md:p-10">
+              <h3 className="font-display text-headline-sm font-bold text-cream">Send a Message</h3>
               <h2 className="mt-4 font-display text-headline-md font-bold text-cream">Get in Touch</h2>
               {sent ? (
                 <div
-                  className="mt-8 flex flex-col items-center gap-4 rounded-lg border border-gold/40 bg-gold/5 px-6 py-12 text-center"
+                  className="mt-8 flex flex-col items-center gap-4 rounded-[3px] border border-gold/40 bg-gold/5 px-6 py-12 text-center"
                   style={{ animation: 'rise 0.8s cubic-bezier(0.16,1,0.3,1) both' }}
                 >
                   <span className="flex items-center justify-center" style={{ animation: 'pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both' }}>

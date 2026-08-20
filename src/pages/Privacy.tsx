@@ -6,8 +6,7 @@ export default function Privacy() {
       <section className="relative flex min-h-[36vh] items-center overflow-hidden">
         <div className="absolute inset-0 bg-background" />
         <div className="container-x relative z-10 pt-24 text-center">
-          <p className="eyebrow rise rise-1">Legal</p>
-          <h1 className="rise rise-2 mt-5 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">
+          <h1 className="rise rise-2 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">
             Privacy Policy
           </h1>
           <p className="rise rise-3 mx-auto mt-4 text-body-md text-muted">Updated June 2026</p>

@@ -6,7 +6,6 @@ export default function Faq() {
     <section className="container-x py-section-gap">
       <div className="mx-auto max-w-3xl">
         <SectionHeading
-          eyebrow="Good to know"
           title="Frequently Asked Questions"
           className="mb-12 max-w-2xl"
         />

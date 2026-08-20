@@ -60,9 +60,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         <div className="container-x relative z-10 pt-24 text-center [text-shadow:0_2px_28px_rgba(0,0,0,0.6)]">
           <img src="/media/boardroom-logo-white.png" alt="Boardroom Brewery" className="rise rise-1 mx-auto mb-7 h-12 w-auto max-w-[82%] drop-shadow-[0_2px_24px_rgba(0,0,0,0.6)] sm:h-16" />
-          <p className="eyebrow rise rise-1">El Segundo, California · Near LAX</p>
-          <h1 className="rise rise-2 mx-auto mt-6 max-w-4xl font-display text-display-lg-mobile font-extrabold text-cream md:text-display-xl">Crafted at the Arena.</h1>
+          <h1 className="rise rise-2 mx-auto mt-2 max-w-4xl font-display text-display-lg-mobile font-extrabold text-cream md:text-display-xl">Crafted at the Arena.</h1>
           <p className="rise rise-3 mx-auto mt-6 max-w-2xl text-body-lg text-on-surface">{company.shortBlurb}</p>
+          <p className="rise rise-3 mt-4 text-body-md text-on-surface-variant">El Segundo, California · near LAX</p>
           <div className="rise rise-4 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button href="/beer" variant="gold">See What's On Tap <ArrowRight size={16} /></Button>
             <Button href="/taproom" variant="ghost">Explore the Taproom</Button>
@@ -78,10 +78,10 @@ export default function Home() {
       <section className="py-24 md:py-32">
         <div className="container-x grid items-center gap-14 lg:grid-cols-2">
           <div className="reveal">
-            <p className="eyebrow">Since 2024</p>
-            <h2 className="mt-4 font-display text-headline-lg font-bold text-cream md:text-[46px]">Brewed with Local Soul.</h2>
+            <h2 className="font-display text-headline-lg font-bold text-cream md:text-[46px]">Brewed with Local Soul.</h2>
+            <p className="mt-3 text-body-md text-muted">Pouring in El Segundo since 2024.</p>
             <span className="gold-rule mt-5" />
-            <p className="mt-6 text-body-lg text-on-surface-variant">At Boardroom Brewery, beer is a structural art form. Every batch is brewed right here on Arena Street with high-quality, locally sourced ingredients. From our flagship heavy-hitters to rotating seasonal experiments, we balance industrial precision with a craftsman's heart.</p>
+            <p className="mt-6 text-body-lg text-on-surface-variant">Every batch is brewed right here on Arena Street. Flagships you can count on, seasonal experiments when the brewers get an idea, and nothing leaves the tank until it tastes right.</p>
             <p className="mt-4 text-body-lg text-on-surface-variant">Add house-crafted hard seltzers and natural-style California wines, and you've got a modern South Bay taproom built for great nights.</p>
             <div className="mt-8 grid grid-cols-2 gap-6">
               <div className="border-l-2 border-gold pl-6"><span className="block font-display text-headline-md font-bold text-cream">On-Site</span><span className="font-label text-label-sm uppercase tracking-[0.16em] text-on-surface-variant">Brewed on Arena St.</span></div>
@@ -89,8 +89,8 @@ export default function Home() {
             </div>
           </div>
           <div className="reveal relative">
-            <CrossfadeImage images={['/media/gallery/br-48.webp', '/media/gallery/taproom.jpg', '/media/beer/beer-photo-1.jpg', '/media/gallery/br-44.webp', '/media/gallery/br-46.webp', '/media/events/img-1116.png']} alt="Inside Boardroom Brewery in El Segundo" className="aspect-[4/3] w-full rounded-lg shadow-2xl" />
-            <div className="absolute -bottom-5 left-5 rounded-lg border border-gold/40 bg-background/90 px-6 py-3 font-label text-label-sm uppercase tracking-[0.16em] text-gold backdrop-blur">El Segundo, CA</div>
+            <CrossfadeImage images={['/media/gallery/br-48.webp', '/media/gallery/taproom.jpg', '/media/beer/beer-photo-1.jpg', '/media/gallery/br-44.webp', '/media/gallery/br-46.webp', '/media/events/img-1116.png']} alt="Inside Boardroom Brewery in El Segundo" className="aspect-[4/3] w-full rounded-[3px] shadow-2xl" />
+            <div className="absolute -bottom-5 left-5 rounded-[3px] border border-gold/40 bg-background/90 px-6 py-3 font-label text-label-sm uppercase tracking-[0.16em] text-gold backdrop-blur">El Segundo, CA</div>
           </div>
         </div>
       </section>
@@ -98,7 +98,7 @@ export default function Home() {
       {/* ON TAP PREVIEW */}
       <section className="bg-surface-container-lowest bg-surface py-24 md:py-32">
         <div className="container-x">
-          <SectionHeading eyebrow="Now Pouring" title="On Tap" intro="A live selection of structural brews, crisp seltzers, and natural wines. The full list updates daily on our Untappd menu." />
+          <SectionHeading title="On Tap" intro="Beer, crisp seltzers, and natural wines. The full list updates daily on our Untappd menu." />
           <div className="mt-14"><BeerShowcase /></div>
           <div className="mt-8 text-center"><Button href="/beer" variant="outline"><BeerIcon size={16} /> View the Full Tap List</Button></div>
         </div>
@@ -120,8 +120,8 @@ export default function Home() {
             </div>
           </div>
           <div className="reveal grid grid-cols-2 gap-5">
-            <img src="/media/gallery/br-20.jpg" alt="The Boardroom Brewery taproom" className="mt-10 h-72 w-full rounded-lg object-cover" loading="lazy" />
-            <img src="/media/gallery/br-25.jpg" alt="Food trucks and patio at Boardroom Brewery" className="h-72 w-full rounded-lg object-cover" loading="lazy" />
+            <img src="/media/gallery/br-20.jpg" alt="The Boardroom Brewery taproom" className="mt-10 h-72 w-full rounded-[3px] object-cover" loading="lazy" />
+            <img src="/media/gallery/br-25.jpg" alt="Food trucks and patio at Boardroom Brewery" className="h-72 w-full rounded-[3px] object-cover" loading="lazy" />
           </div>
         </div>
       </section>
@@ -129,9 +129,9 @@ export default function Home() {
       {/* WATCH — clickable videos */}
       <section className="border-y border-outline-variant bg-surface py-20 md:py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="Watch" title="Inside the Boardroom" intro="A few moments from the taproom and the brews. Tap any video to play." />
+          <SectionHeading title="Inside the Boardroom" intro="A few moments from the taproom and the brews. Tap any video to play." />
           <div className="mx-auto mt-12 max-w-3xl reveal">
-            <video className="aspect-video w-full rounded-lg border border-outline-variant bg-black object-cover brightness-105" controls preload="metadata" poster="/media/gallery/br-44.webp">
+            <video className="aspect-video w-full rounded-[3px] border border-outline-variant bg-black object-cover brightness-105" controls preload="metadata" poster="/media/gallery/br-44.webp">
               <source src="/media/video/brewery-1.mp4" type="video/mp4" />
             </video>
           </div>
@@ -141,7 +141,7 @@ export default function Home() {
       {/* GALLERY — infinite slider of every photo */}
       <section className="py-20">
         <div className="container-x">
-          <SectionHeading eyebrow="Inside Boardroom" title="A Look Around" align="left" />
+          <SectionHeading title="A Look Around" align="left" />
         </div>
         <div className="mt-10"><ImageAutoSlider /></div>
         <div className="container-x mt-8"><Button href="/gallery" variant="ghost">See the Full Gallery <ArrowRight size={15} /></Button></div>
@@ -156,7 +156,7 @@ export default function Home() {
         <img src="/media/br-wide-1920w.png" alt="" className="parallax absolute -inset-y-[14%] h-[128%] w-full object-cover" style={{ ['--p-amt' as string]: '32px' }} loading="lazy" />
         <div className="absolute inset-0 bg-background/88" />
         <div className="container-x relative z-10 py-24 text-center md:py-28">
-          <p className="eyebrow">Come Visit</p>
+          <h3 className="font-display text-headline-sm font-bold text-cream">Come Visit</h3>
           <h2 className="mx-auto mt-4 max-w-2xl font-display text-headline-lg font-bold text-cream md:text-[46px]">211 Arena Street, El Segundo</h2>
           <p className="mx-auto mt-5 max-w-xl text-body-lg text-on-surface-variant">{company.nearLax} Come for the beer, stay for the architecture.</p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">

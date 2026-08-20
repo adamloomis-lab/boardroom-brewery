@@ -30,7 +30,7 @@ export default function HoursList({
           <li
             key={h.day}
             aria-current={isToday ? 'date' : undefined}
-            className={`flex items-center justify-between gap-3 rounded-md px-3 py-2 transition-colors ${
+            className={`flex items-center justify-between gap-3 rounded-[3px] px-3 py-2 transition-colors ${
               isToday ? 'bg-gold/10 ring-1 ring-inset ring-gold/30' : ''
             }`}
           >
@@ -44,7 +44,7 @@ export default function HoursList({
               )}
               {short ? h.short : h.day}
               {isToday && !short && (
-                <span className="rounded-full bg-gold/20 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.16em] text-gold">
+                <span className="rounded-[3px] border border-gold/40 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.16em] text-gold">
                   Today
                 </span>
               )}

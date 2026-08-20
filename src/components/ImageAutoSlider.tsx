@@ -19,7 +19,7 @@ export default function ImageAutoSlider({ images }: { readonly images?: readonly
       <div className="br-mask w-full">
         <div className="br-infinite flex w-max gap-4">
           {doubled.map((src, i) => (
-            <div key={i} className="h-44 w-44 shrink-0 overflow-hidden rounded-xl border border-outline-variant shadow-2xl md:h-60 md:w-60">
+            <div key={i} className="h-44 w-44 shrink-0 overflow-hidden rounded-[3px] border border-outline-variant shadow-2xl md:h-60 md:w-60">
               <img src={src} alt="" aria-hidden="true" loading="lazy" className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
             </div>
           ))}

@@ -19,7 +19,7 @@ export default function BeerShowcase() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent transition-all duration-500 group-hover:from-black/95" />
             <div className="relative flex items-end justify-between gap-3">
               <div className="min-w-0">
-                <span className="inline-block rounded-full bg-white/15 px-3 py-1 font-label text-[10px] font-bold uppercase tracking-widest backdrop-blur-md">{b.tag}</span>
+                <span className="inline-block rounded-[3px] border border-white/25 bg-black/30 px-2.5 py-1 font-label text-[10px] font-bold uppercase tracking-widest backdrop-blur-md">{b.tag}</span>
                 <h3 className={`mt-3 font-display font-bold leading-tight ${featured ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>{b.name}</h3>
                 <p className="mt-1 font-label text-[11px] uppercase tracking-[0.16em] text-gold">{b.style} · {b.abv} ABV</p>
                 {featured && <p className="mt-3 max-w-md text-sm leading-relaxed text-white/85">{b.notes}</p>}

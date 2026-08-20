@@ -28,7 +28,7 @@ export default function StickyBookEvent() {
   return (
     <Link
       href="/private-events"
-      className={`group fixed bottom-8 right-8 z-40 hidden items-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-br from-gold to-gold-dark px-7 py-4 font-label text-[13px] font-bold uppercase tracking-[0.14em] text-on-gold shadow-[0_16px_44px_-8px_rgba(246,174,45,0.55)] ring-1 ring-white/15 transition-all duration-300 hover:scale-[1.04] lg:flex ${
+      className={`group fixed bottom-8 right-8 z-40 hidden items-center gap-2.5 overflow-hidden rounded-[3px] bg-gradient-to-br from-gold to-gold-dark px-7 py-4 font-label text-[13px] font-bold uppercase tracking-[0.14em] text-on-gold shadow-[0_16px_44px_-8px_rgba(246,174,45,0.55)] ring-1 ring-white/15 transition-all duration-300 hover:scale-[1.04] lg:flex ${
         show
           ? 'pointer-events-auto translate-y-0 opacity-100'
           : 'pointer-events-none translate-y-5 opacity-0'

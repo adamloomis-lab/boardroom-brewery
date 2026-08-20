@@ -30,7 +30,7 @@ export default function QRScan() {
   }
 
   const Btn = ({ label, icon: Icon, href, primary }: { label: string; icon: typeof Beer; href: string; primary?: boolean }) => {
-    const cls = `flex items-center gap-4 rounded-xl px-5 py-4 font-display text-headline-sm font-semibold transition-all active:scale-[0.98] ${primary ? 'bg-gold text-on-gold hover:bg-gold-light' : 'border border-outline bg-surface-card text-cream hover:border-gold'}`
+    const cls = `flex items-center gap-4 rounded-[3px] px-5 py-4 font-display text-headline-sm font-semibold transition-all active:scale-[0.98] ${primary ? 'bg-gold text-on-gold hover:bg-gold-light' : 'border border-outline bg-surface-card text-cream hover:border-gold'}`
     const inner = (<><Icon size={24} className={primary ? '' : 'text-gold'} /><span className="flex-1">{label}</span><ArrowRight size={18} className="opacity-60" /></>)
     return isExternal(href)
       ? <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
@@ -42,23 +42,23 @@ export default function QRScan() {
       <div className="mx-auto w-full max-w-md">
         <div className="flex flex-col items-center text-center">
           <Logo variant="stacked" />
-          <p className="eyebrow mt-6">Now Pouring at Boardroom</p>
+          <h2 className="mt-6 font-display text-headline-sm font-bold text-cream">Now Pouring at Boardroom</h2>
           <h1 className="mt-3 font-display text-headline-lg font-extrabold text-cream">Welcome In.</h1>
           <p className="mt-2 text-body-md text-on-surface-variant">Tap below for our menu, what's on, and how to find us. {company.nearLax}</p>
         </div>
 
         <div className="mt-8 flex flex-col gap-3">
           {links.map((l) => (<Btn key={l.label} {...l} />))}
-          <a href={company.mapsDir} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 rounded-xl border border-outline bg-surface-card px-5 py-4 font-display text-headline-sm font-semibold text-cream transition-all hover:border-gold active:scale-[0.98]"><MapPin size={24} className="text-gold" /><span className="flex-1">Get Directions</span><ArrowRight size={18} className="opacity-60" /></a>
-          <a href={company.social.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 rounded-xl border border-outline bg-surface-card px-5 py-4 font-display text-headline-sm font-semibold text-cream transition-all hover:border-gold active:scale-[0.98]"><Instagram size={24} className="text-gold" /><span className="flex-1">Follow on Instagram</span><ArrowRight size={18} className="opacity-60" /></a>
+          <a href={company.mapsDir} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 rounded-[3px] border border-outline bg-surface-card px-5 py-4 font-display text-headline-sm font-semibold text-cream transition-all hover:border-gold active:scale-[0.98]"><MapPin size={24} className="text-gold" /><span className="flex-1">Get Directions</span><ArrowRight size={18} className="opacity-60" /></a>
+          <a href={company.social.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 rounded-[3px] border border-outline bg-surface-card px-5 py-4 font-display text-headline-sm font-semibold text-cream transition-all hover:border-gold active:scale-[0.98]"><Instagram size={24} className="text-gold" /><span className="flex-1">Follow on Instagram</span><ArrowRight size={18} className="opacity-60" /></a>
         </div>
 
         {/* Reviews */}
         <div className="mt-12">
-          <p className="eyebrow text-center">What People Say</p>
+          <h2 className="text-center font-display text-headline-sm font-bold text-cream">What People Say</h2>
           <div className="mt-5 flex flex-col gap-4">
             {reviews.map((r) => (
-              <figure key={r.quote} className="rounded-xl border border-outline-variant bg-surface-card p-5">
+              <figure key={r.quote} className="rounded-[3px] border border-outline-variant bg-surface-card p-5">
                 <div className="flex gap-1">{Array.from({ length: 5 }).map((_, i) => (<Star key={i} size={14} className="fill-gold text-gold" />))}</div>
                 <blockquote className="mt-3 text-body-md text-on-surface">{r.quote}</blockquote>
                 <figcaption className="mt-2 font-label text-[11px] uppercase tracking-[0.16em] text-gold">{r.author}</figcaption>
@@ -68,7 +68,7 @@ export default function QRScan() {
         </div>
 
         {/* Signup */}
-        <div className="mt-12 rounded-xl border border-gold/40 bg-surface-card p-6 text-center">
+        <div className="mt-12 rounded-[3px] border border-gold/40 bg-surface-card p-6 text-center">
           <h2 className="font-display text-headline-sm font-bold text-cream">Stay in the Loop</h2>
           <p className="mt-1 text-sm text-on-surface-variant">Be first to hear about special events and new beer.</p>
           {sent ? (

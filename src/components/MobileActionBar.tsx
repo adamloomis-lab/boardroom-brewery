@@ -22,7 +22,7 @@ export default function MobileActionBar() {
       <div className="flex gap-2 rounded-2xl border border-white/10 bg-black/80 p-2 shadow-[0_14px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl">
         <a
           href={phone}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-white/10 py-3.5 font-label text-[11px] font-semibold uppercase tracking-[0.14em] text-cream transition-all active:scale-95"
+          className="flex flex-1 items-center justify-center gap-2 rounded-[3px] bg-white/10 py-3.5 font-label text-[11px] font-semibold uppercase tracking-[0.14em] text-cream transition-all active:scale-95"
         >
           <Phone size={18} className="text-gold" /> Call
         </a>
@@ -30,13 +30,13 @@ export default function MobileActionBar() {
           href={directions}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-white/10 py-3.5 font-label text-[11px] font-semibold uppercase tracking-[0.14em] text-cream transition-all active:scale-95"
+          className="flex flex-1 items-center justify-center gap-2 rounded-[3px] bg-white/10 py-3.5 font-label text-[11px] font-semibold uppercase tracking-[0.14em] text-cream transition-all active:scale-95"
         >
           <MapPin size={18} className="text-gold" /> Directions
         </a>
         <Link
           href="/beer"
-          className="group relative flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-xl bg-gold py-3.5 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-gold shadow-[0_8px_22px_rgba(246,174,45,0.3)] animate-glow-pulse transition-all active:scale-95"
+          className="group relative flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-[3px] bg-gold py-3.5 font-label text-[11px] font-bold uppercase tracking-[0.14em] text-on-gold shadow-[0_8px_22px_rgba(246,174,45,0.3)] animate-glow-pulse transition-all active:scale-95"
         >
           <span
             className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-white/30 blur-md group-hover:[animation:sheen_0.9s_ease]"

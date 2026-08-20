@@ -58,27 +58,26 @@ export default function PrivateEvents() {
         <img src="/media/gallery/br-12.jpg" alt="Private event space at Boardroom Brewery near LAX" className="kenburns absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/72" />
         <div className="container-x relative z-10 pt-24 text-center">
-          <p className="eyebrow rise rise-1">Private Events</p>
-          <h1 className="rise rise-2 mt-5 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">{privateEvents.headline}</h1>
+          <h1 className="rise rise-2 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">{privateEvents.headline}</h1>
           <p className="rise rise-3 mx-auto mt-5 max-w-2xl text-body-lg text-on-surface">{privateEvents.blurb}</p>
         </div>
       </section>
 
       <section className="py-20 md:py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="What's Included" title="A Space That Flexes to Your Night" />
+          <SectionHeading title="A Space That Flexes to Your Night" />
           <div className="mt-12 grid gap-6 reveal-group sm:grid-cols-2 lg:grid-cols-4">
             {privateEvents.features.map((f) => (
-              <div key={f.title} className="rounded-lg border border-outline-variant bg-surface-card p-7">
+              <div key={f.title} className="rounded-[3px] border border-outline-variant bg-surface-card p-7">
                 <h3 className="font-display text-headline-sm font-bold text-cream">{f.title}</h3>
                 <p className="mt-2 text-body-md text-on-surface-variant">{f.desc}</p>
               </div>
             ))}
           </div>
-          <div className="mt-12 rounded-lg border border-outline-variant bg-surface-card p-8">
+          <div className="mt-12 rounded-[3px] border border-outline-variant bg-surface-card p-8">
             <div className="flex items-center gap-3"><PartyPopper size={22} className="text-gold" /><h3 className="font-display text-headline-sm font-bold text-cream">Perfect For</h3></div>
             <div className="mt-5 flex flex-wrap gap-2.5">
-              {privateEvents.eventTypes.map((t) => (<span key={t} className="rounded-full border border-outline px-4 py-1.5 font-label text-[12px] uppercase tracking-wide text-on-surface-variant">{t}</span>))}
+              {privateEvents.eventTypes.map((t) => (<span key={t} className="rounded-[3px] border border-outline px-4 py-1.5 font-label text-[12px] uppercase tracking-wide text-on-surface-variant">{t}</span>))}
             </div>
           </div>
         </div>
@@ -87,13 +86,13 @@ export default function PrivateEvents() {
       <section className="border-t border-outline-variant bg-surface py-20 md:py-24">
         <div className="container-x grid gap-14 lg:grid-cols-2">
           <div className="reveal">
-            <p className="eyebrow">Request a Date</p>
+            <h3 className="font-display text-headline-sm font-bold text-cream">Request a Date</h3>
             <h2 className="mt-4 font-display text-headline-lg font-bold text-cream">Tell Us About Your Event</h2>
             <span className="gold-rule mt-5" />
             <p className="mt-6 text-body-lg text-on-surface-variant">{privateEvents.pricing} Send us the details and we'll get right back to you with options and a quote. Prefer to talk it through? Call {company.phone}.</p>
             <p className="mt-4 text-body-md text-on-surface-variant">Or visit us at {company.addressOneLine}.</p>
           </div>
-          <div className="reveal rounded-lg border border-outline-variant bg-surface-card p-8 md:p-10">
+          <div className="reveal rounded-[3px] border border-outline-variant bg-surface-card p-8 md:p-10">
             {sent ? (
               <div className="flex flex-col items-center gap-4 py-12 text-center" style={{ animation: 'rise 0.8s cubic-bezier(0.16,1,0.3,1) both' }}>
                 <span className="flex items-center justify-center" style={{ animation: 'pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both' }}>
