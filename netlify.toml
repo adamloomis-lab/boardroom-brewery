@@ -8,6 +8,14 @@
 # Prerendered per-route HTML is served directly (Netlify serves existing files
 # before applying this fallback). The fallback only catches client-side routes
 # that have no prerendered file.
+# The June 2026 World Cup window is over; the page is gone. Must sit BEFORE
+# the SPA catch-all or it never matches.
+[[redirects]]
+  from = "/world-cup"
+  to = "/events"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -30,10 +38,3 @@
 
 [functions]
   directory = "netlify/functions"
-
-# The June 2026 World Cup window is over; the page is gone.
-[[redirects]]
-  from = "/world-cup"
-  to = "/events"
-  status = 301
-  force = true
