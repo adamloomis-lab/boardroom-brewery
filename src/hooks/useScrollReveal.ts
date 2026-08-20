@@ -16,6 +16,11 @@ export function useScrollReveal(deps: string) {
       return
     }
 
+    // Arm the animations only now, with a live observer in hand. The hiding
+    // CSS is gated behind this class, so a visitor with no JS, a crashed
+    // hydration, or a missing observer sees everything: fail open, always.
+    document.documentElement.classList.add('reveal-ready')
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {

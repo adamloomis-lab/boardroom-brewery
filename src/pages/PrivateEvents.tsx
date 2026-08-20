@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
-import { PartyPopper, Send, ArrowRight, Loader2, Phone,
+import { Send, ArrowRight, Loader2, Phone,
   Cake, Briefcase, Users, GlassWater, HeartHandshake, MessageCircle, type LucideIcon } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import { company, privateEvents } from '../data/site'
@@ -66,17 +66,19 @@ export default function PrivateEvents() {
       <section className="py-20 md:py-24">
         <div className="container-x">
           <SectionHeading title="A Space That Flexes to Your Night" />
-          <div className="mt-12 grid gap-6 reveal-group sm:grid-cols-2 lg:grid-cols-4">
+          {/* The space, as a ledger: same rhythm as the events program. Four
+              matching cards said "template"; the divider list says "read on". */}
+          <div className="mt-12 divide-y divide-outline-variant border-y border-outline-variant reveal-group">
             {privateEvents.features.map((f) => (
-              <div key={f.title} className="rounded-[3px] border border-outline-variant bg-surface-card p-7">
+              <div key={f.title} className="grid gap-2 py-8 md:grid-cols-[280px_1fr] md:gap-10 md:py-9">
                 <h3 className="font-display text-headline-sm font-bold text-cream">{f.title}</h3>
-                <p className="mt-2 text-body-md text-on-surface-variant">{f.desc}</p>
+                <p className="max-w-2xl text-body-lg text-on-surface-variant">{f.desc}</p>
               </div>
             ))}
           </div>
-          <div className="mt-12 rounded-[3px] border border-outline-variant bg-surface-card p-8">
-            <div className="flex items-center gap-3"><PartyPopper size={22} className="text-gold" /><h3 className="font-display text-headline-sm font-bold text-cream">Perfect For</h3></div>
-            <div className="mt-5 flex flex-wrap gap-2.5">
+          <div className="mt-16">
+            <h3 className="font-display text-headline-sm font-bold text-cream">Perfect for</h3>
+            <div className="mt-5 flex max-w-4xl flex-wrap gap-2.5">
               {privateEvents.eventTypes.map((t) => (<span key={t} className="rounded-[3px] border border-outline px-4 py-1.5 font-label text-[12px] uppercase tracking-wide text-on-surface-variant">{t}</span>))}
             </div>
           </div>
@@ -86,8 +88,7 @@ export default function PrivateEvents() {
       <section className="border-t border-outline-variant bg-surface py-20 md:py-24">
         <div className="container-x grid gap-14 lg:grid-cols-2">
           <div className="reveal">
-            <h3 className="font-display text-headline-sm font-bold text-cream">Request a Date</h3>
-            <h2 className="mt-4 font-display text-headline-lg font-bold text-cream">Tell Us About Your Event</h2>
+            <h2 className="font-display text-headline-lg font-bold text-cream">Tell Us About Your Event</h2>
             <span className="gold-rule mt-5" />
             <p className="mt-6 text-body-lg text-on-surface-variant">{privateEvents.pricing} Send us the details and we'll get right back to you with options and a quote. Prefer to talk it through? Call {company.phone}.</p>
             <p className="mt-4 text-body-md text-on-surface-variant">Or visit us at {company.addressOneLine}.</p>
