@@ -19,7 +19,7 @@ export default function MobileActionBar() {
       className="fixed inset-x-0 bottom-0 z-40 px-3 lg:hidden"
       style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
     >
-      <div className="flex gap-2 rounded-2xl border border-white/10 bg-black/80 p-2 shadow-[0_14px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+      <div className="flex gap-2 rounded-[3px] border border-white/10 bg-black/80 p-2 shadow-[0_14px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl">
         <a
           href={phone}
           className="flex flex-1 items-center justify-center gap-2 rounded-[3px] bg-white/10 py-3.5 font-label text-[11px] font-semibold uppercase tracking-[0.14em] text-cream transition-all active:scale-95"

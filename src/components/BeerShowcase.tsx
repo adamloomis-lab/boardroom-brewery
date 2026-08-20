@@ -6,7 +6,7 @@ import { beers } from '../data/site'
 // photos. Featured pour = tall left card; the rest fill the 2x2 on the right.
 export default function BeerShowcase() {
   return (
-    <div className="grid auto-rows-[280px] gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid auto-rows-[220px] md:auto-rows-[280px] gap-4 md:grid-cols-2 lg:grid-cols-3">
       {beers.map((b) => {
         const featured = b.featured
         return (
@@ -14,7 +14,7 @@ export default function BeerShowcase() {
             key={b.name}
             href="/beer"
             style={{ backgroundImage: `url(${b.image})` }}
-            className={`group relative flex flex-col justify-end overflow-hidden rounded-2xl border border-outline-variant bg-cover bg-center p-6 text-white transition-transform duration-300 hover:scale-[0.99] ${featured ? 'lg:row-span-2' : ''}`}
+            className={`group relative flex flex-col justify-end overflow-hidden rounded-[3px] border border-outline-variant bg-cover bg-center p-6 text-white transition-transform duration-300 hover:scale-[0.99] ${featured ? 'lg:row-span-2' : ''}`}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent transition-all duration-500 group-hover:from-black/95" />
             <div className="relative flex items-end justify-between gap-3">

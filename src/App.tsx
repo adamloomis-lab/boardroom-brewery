@@ -4,7 +4,6 @@ import Seo from './components/Seo'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MobileActionBar from './components/MobileActionBar'
-import StickyBookEvent from './components/StickyBookEvent'
 import AgeGate from './components/AgeGate'
 import CookieBanner from './components/CookieBanner'
 import { useScrollReveal } from './hooks/useScrollReveal'
@@ -61,7 +60,6 @@ function Shell() {
       <Footer />
       <div className="h-16 lg:hidden" aria-hidden="true" />
       <MobileActionBar />
-      <StickyBookEvent />
       <AgeGate />
       <CookieBanner />
     </>

@@ -59,10 +59,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/15" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         <div className="container-x relative z-10 pt-24 text-center [text-shadow:0_2px_28px_rgba(0,0,0,0.6)]">
-          <img src="/media/boardroom-logo-white.png" alt="Boardroom Brewery" className="rise rise-1 mx-auto mb-7 h-12 w-auto max-w-[82%] drop-shadow-[0_2px_24px_rgba(0,0,0,0.6)] sm:h-16" />
           <h1 className="rise rise-2 mx-auto mt-2 max-w-4xl font-display text-display-lg-mobile font-extrabold text-cream md:text-display-xl">Crafted at the Arena.</h1>
           <p className="rise rise-3 mx-auto mt-6 max-w-2xl text-body-lg text-on-surface">{company.shortBlurb}</p>
-          <p className="rise rise-3 mt-4 text-body-md text-on-surface-variant">El Segundo, California · near LAX</p>
+          <p className="rise rise-3 mt-4 text-body-md text-on-surface">Craft brewery and taproom in El Segundo, minutes from LAX</p>
           <div className="rise rise-4 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button href="/beer" variant="gold">See What's On Tap <ArrowRight size={16} /></Button>
             <Button href="/taproom" variant="ghost">Explore the Taproom</Button>
@@ -75,7 +74,7 @@ export default function Home() {
       <Marquee />
 
       {/* STORY */}
-      <section className="py-24 md:py-32">
+      <section className="py-16 md:py-24">
         <div className="container-x grid items-center gap-14 lg:grid-cols-2">
           <div className="reveal">
             <h2 className="font-display text-headline-lg font-bold text-cream md:text-[46px]">Brewed with Local Soul.</h2>
@@ -96,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* ON TAP PREVIEW */}
-      <section className="bg-surface-container-lowest bg-surface py-24 md:py-32">
+      <section className="bg-surface-container-lowest bg-surface py-16 md:py-24">
         <div className="container-x">
           <SectionHeading title="On Tap" intro="Beer, crisp seltzers, and natural wines. The full list updates daily on our Untappd menu." />
           <div className="mt-14"><BeerShowcase /></div>
@@ -105,10 +104,10 @@ export default function Home() {
       </section>
 
       {/* FOOD & EVENTS */}
-      <section className="py-24 md:py-32">
+      <section className="py-16 md:py-24">
         <div className="container-x grid items-start gap-16 lg:grid-cols-2">
           <div className="reveal">
-            <h2 className="font-display text-display-lg-mobile font-bold leading-none text-cream md:text-[54px]">The Social Infrastructure.</h2>
+            <h2 className="font-display text-display-lg-mobile font-bold leading-none text-cream md:text-[54px]">What's Happening at Boardroom</h2>
             <div className="mt-10 space-y-6">
               {events.map((e) => (
                 <div key={e.title} className="flex gap-5 border-b border-white/5 pb-6">
@@ -120,8 +119,8 @@ export default function Home() {
             </div>
           </div>
           <div className="reveal grid grid-cols-2 gap-5">
-            <img src="/media/gallery/br-20.jpg" alt="The Boardroom Brewery taproom" className="mt-10 h-72 w-full rounded-[3px] object-cover" loading="lazy" />
-            <img src="/media/gallery/br-25.jpg" alt="Food trucks and patio at Boardroom Brewery" className="h-72 w-full rounded-[3px] object-cover" loading="lazy" />
+            <img src="/media/gallery/br-20.jpg" alt="The Boardroom Brewery taproom" className="mt-10 h-44 w-full rounded-[3px] object-cover md:h-72" loading="lazy" />
+            <img src="/media/gallery/br-25.jpg" alt="Food trucks and patio at Boardroom Brewery" className="h-44 w-full rounded-[3px] object-cover md:h-72" loading="lazy" />
           </div>
         </div>
       </section>

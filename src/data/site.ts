@@ -12,7 +12,7 @@ export const company = {
     'Small-batch beer, natural-style wines, and hard seltzers with clean flavors. A modern South Bay taproom near LAX, built for great nights and private events.',
   nearLax: 'In El Segundo, just minutes from LAX and the South Bay.',
   phone: '(310) 510-6698 ext. 211',
-  phoneHref: 'tel:+13105106698,211',
+  phoneHref: 'tel:+13105106698',
   textHref: 'sms:+13105106698',
   email: 'forchi@boardroomatarena.com',
   emailHref: 'mailto:forchi@boardroomatarena.com',

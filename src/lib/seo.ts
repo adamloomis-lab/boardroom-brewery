@@ -1,9 +1,9 @@
 import { company, openingHours } from '../data/site'
 import { faqs } from '../data/faq'
 
-// Staging host for now; cut over to their production domain on launch and the
-// canonicals/sitemap/OG/schema all follow.
-export const SITE_URL = 'https://boardroom-at-arena.netlify.app'
+// One switch for the whole site. Set VITE_SITE_URL in Netlify env at cutover
+// and canonicals, OG, schema, sitemap, robots, and llms files all follow.
+export const SITE_URL = ((import.meta.env?.VITE_SITE_URL as string | undefined) || 'https://boardroom-at-arena.netlify.app').replace(/\/$/, '')
 
 const OG_IMAGE = '/media/gallery/br-01.jpg'
 
@@ -31,7 +31,7 @@ export function localBusinessSchema() {
     url: SITE_URL,
     image: abs(OG_IMAGE),
     logo: abs('/media/logo.jpg'),
-    telephone: company.phone,
+    telephone: '+1-310-510-6698',
     email: company.email,
     priceRange: '$$',
     description: company.shortBlurb,
@@ -113,7 +113,7 @@ export function getPageMeta(rawPath: string): PageMeta {
     case '/':
       return {
         title: 'Boardroom Brewery | Craft Beer, Seltzer & Natural Wine in El Segundo',
-        description: `${company.shortBlurb} ${company.nearLax} Call ${company.phone}.`,
+        description: 'Craft brewery and taproom in El Segundo, minutes from LAX. Small-batch beer, seltzers, natural wines, food trucks, and private events on Arena Street.',
         canonical: pageUrl('/'),
         ogImage,
         jsonLd: [localBusinessSchema(), websiteSchema(), faqSchema()],
@@ -190,6 +190,30 @@ export function getPageMeta(rawPath: string): PageMeta {
         ogImage,
         jsonLd: [...base, { '@context': 'https://schema.org', '@type': 'ContactPage', url: pageUrl('/contact'), about: { '@id': `${SITE_URL}/#business` } }, crumb('Contact', '/contact')],
       }
+    case '/privacy':
+      return {
+        title: 'Privacy Policy | Boardroom Brewery',
+        description: 'How Boardroom Brewery handles the information you share through our website, forms, and newsletter.',
+        canonical: pageUrl('/privacy'),
+        ogImage,
+        jsonLd: [...base, crumb('Privacy Policy', '/privacy')],
+      }
+    case '/terms':
+      return {
+        title: 'Terms of Use | Boardroom Brewery',
+        description: 'The terms that apply when you use the Boardroom Brewery website.',
+        canonical: pageUrl('/terms'),
+        ogImage,
+        jsonLd: [...base, crumb('Terms of Use', '/terms')],
+      }
+    case '/accessibility':
+      return {
+        title: 'Accessibility Statement | Boardroom Brewery',
+        description: 'What we do to keep the Boardroom Brewery website usable for everyone, and how to reach us if something is in your way.',
+        canonical: pageUrl('/accessibility'),
+        ogImage,
+        jsonLd: [...base, crumb('Accessibility', '/accessibility')],
+      }
     default:
       return {
         title: 'Page Not Found | Boardroom Brewery',
@@ -202,5 +226,5 @@ export function getPageMeta(rawPath: string): PageMeta {
 }
 
 export const ALL_ROUTES: string[] = [
-  '/', '/beer', '/wine', '/taproom', '/events', '/run-club', '/private-events', '/gallery', '/qrscan', '/contact',
+  '/', '/beer', '/wine', '/taproom', '/events', '/run-club', '/private-events', '/gallery', '/qrscan', '/contact', '/privacy', '/terms', '/accessibility',
 ]

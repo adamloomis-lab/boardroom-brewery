@@ -11,7 +11,7 @@ export default function Faq() {
         />
         <div className="border-t border-outline-variant">
           {faqs.map((f) => (
-            <details key={f.q} className="group border-b border-outline-variant py-5">
+            <details key={f.q} className="group border-b border-outline-variant py-4">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6">
                 <span className="font-display text-headline-sm text-cream">{f.q}</span>
                 <span className="font-display text-2xl leading-none text-gold transition-transform duration-200 group-open:rotate-45">+</span>
