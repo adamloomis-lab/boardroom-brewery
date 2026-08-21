@@ -42,6 +42,36 @@ export function useScrollReveal(deps: string) {
         io.observe(el)
       }
     })
-    return () => io.disconnect()
+    // Belt and braces: IntersectionObserver is throttled in hidden and
+    // restored background tabs, which can strand armed elements at opacity 0.
+    // A plain geometry sweep shows anything whose top has entered the
+    // viewport, whether or not an observer callback ever arrives.
+    const sweep = () => {
+      for (const el of els) {
+        if (!el.classList.contains('is-visible') && el.getBoundingClientRect().top < window.innerHeight * 0.94) {
+          el.classList.add('is-visible')
+          io.unobserve(el)
+        }
+      }
+    }
+    let frame = 0
+    const onScroll = () => {
+      if (frame) return
+      frame = requestAnimationFrame(() => {
+        frame = 0
+        sweep()
+      })
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    document.addEventListener('visibilitychange', sweep)
+    const ticks = [400, 1500, 4000].map((ms) => window.setTimeout(sweep, ms))
+
+    return () => {
+      io.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      document.removeEventListener('visibilitychange', sweep)
+      if (frame) cancelAnimationFrame(frame)
+      ticks.forEach(clearTimeout)
+    }
   }, [deps])
 }

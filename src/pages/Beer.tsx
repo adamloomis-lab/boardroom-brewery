@@ -29,23 +29,52 @@ export default function Beer() {
         </div>
       </section>
 
-      {/* Flagship + rotating cards */}
+      {/* Flagships: the brewhouse itself anchors the section, the lineup
+          reads as a tap list beside it. The lead pour gets the big slot;
+          the rest are ledger rows with ABV in a tabular right column. */}
       <section className="py-20 md:py-24">
         <div className="container-x">
           <SectionHeading title="Flagships &amp; Rotating Pours" align="left" />
-          <div className="mt-12 grid gap-6 reveal-group md:grid-cols-2 lg:grid-cols-3">
-            {beers.map((b) => (
-              <article key={b.name} className={`rounded-[3px] border p-7 ${b.featured ? 'border-gold/50 bg-surface-card' : 'border-outline-variant bg-surface-card'}`}>
-                <div className="flex items-center justify-between">
-                  <span className="rounded-[3px] border border-gold/40 px-3 py-1 font-label text-[10px] font-bold uppercase tracking-widest text-gold">{b.tag}</span>
-                  <span className="font-display text-headline-sm font-bold text-gold">{b.abv}</span>
-                </div>
-                <h3 className="mt-4 font-display text-headline-sm font-bold text-cream">{b.name}</h3>
-                <p className="font-label text-[11px] uppercase tracking-[0.16em] text-on-surface-variant">{b.style}</p>
-                <p className="mt-3 text-body-md text-on-surface-variant">{b.notes}</p>
-                <div className="mt-4 flex flex-wrap gap-2">{b.flavors.map((f) => (<span key={f} className="border border-outline px-3 py-1 font-label text-[10px] uppercase tracking-wide text-on-surface-variant">{f}</span>))}</div>
-              </article>
-            ))}
+          <div className="mt-12 grid items-stretch gap-10 reveal-group lg:grid-cols-[440px_1fr] lg:gap-14">
+            <figure className="relative min-h-[420px] overflow-hidden rounded-[3px] lg:min-h-0">
+              <img
+                src="/media/brewhouse-taps.webp"
+                alt="The Boardroom brewhouse: tanks, tap handles, and the surfboard over the bar"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-16">
+                <figcaption className="font-label text-[11px] uppercase tracking-[0.2em] text-cream/85">
+                  Brewed on this system, poured ten feet away
+                </figcaption>
+              </div>
+            </figure>
+
+            <div className="flex flex-col">
+              {beers.filter((b) => b.featured).map((b) => (
+                <article key={b.name} className="border-b border-outline-variant pb-8">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-headline-md font-bold text-cream">{b.name}</h3>
+                    <span className="font-display text-headline-md font-bold text-gold">{b.abv}</span>
+                  </div>
+                  <p className="mt-1 font-label text-[11px] uppercase tracking-[0.16em] text-gold">{b.tag} · {b.style}</p>
+                  <p className="mt-4 max-w-xl text-body-lg text-on-surface-variant">{b.notes}</p>
+                  <p className="mt-3 font-label text-[11px] uppercase tracking-[0.16em] text-on-surface-variant">{b.flavors.join(' · ')}</p>
+                </article>
+              ))}
+              <div className="divide-y divide-outline-variant">
+                {beers.filter((b) => !b.featured).map((b) => (
+                  <article key={b.name} className="grid grid-cols-[1fr_auto] items-baseline gap-x-6 py-6">
+                    <div>
+                      <h3 className="font-display text-headline-sm font-bold text-cream">{b.name}</h3>
+                      <p className="mt-0.5 font-label text-[11px] uppercase tracking-[0.16em] text-on-surface-variant">{b.style}</p>
+                      <p className="mt-2 max-w-xl text-body-md text-on-surface-variant">{b.notes}</p>
+                    </div>
+                    <span className="font-display text-headline-sm font-bold text-gold">{b.abv}</span>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
