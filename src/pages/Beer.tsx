@@ -43,11 +43,6 @@ export default function Beer() {
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-16">
-                <figcaption className="font-label text-[11px] uppercase tracking-[0.2em] text-cream/85">
-                  Brewed on this system, poured ten feet away
-                </figcaption>
-              </div>
             </figure>
 
             <div className="flex flex-col">
