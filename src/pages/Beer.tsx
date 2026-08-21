@@ -3,6 +3,7 @@ import { ExternalLink } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import Button from '../components/Button'
 import { beers, untappd, beerGallery } from '../data/site'
+import CountUp from '../components/CountUp'
 import ImageAutoSlider from '../components/ImageAutoSlider'
 
 declare global { interface Window { PreloadEmbedMenu?: (id: string, a: number, b: number) => void } }
@@ -50,7 +51,7 @@ export default function Beer() {
                 <article key={b.name} className="border-b border-outline-variant pb-8">
                   <div className="flex items-baseline justify-between gap-4">
                     <h3 className="font-display text-headline-md font-bold text-cream">{b.name}</h3>
-                    <span className="font-display text-headline-md font-bold text-gold">{b.abv}</span>
+                    <span className="font-display text-headline-md font-bold text-gold"><CountUp value={b.abv} /></span>
                   </div>
                   <p className="mt-1 font-label text-[11px] uppercase tracking-[0.16em] text-gold">{b.tag} · {b.style}</p>
                   <p className="mt-4 max-w-xl text-body-lg text-on-surface-variant">{b.notes}</p>
@@ -65,7 +66,7 @@ export default function Beer() {
                       <p className="mt-0.5 font-label text-[11px] uppercase tracking-[0.16em] text-on-surface-variant">{b.style}</p>
                       <p className="mt-2 max-w-xl text-body-md text-on-surface-variant">{b.notes}</p>
                     </div>
-                    <span className="font-display text-headline-sm font-bold text-gold">{b.abv}</span>
+                    <span className="font-display text-headline-sm font-bold text-gold"><CountUp value={b.abv} /></span>
                   </article>
                 ))}
               </div>
