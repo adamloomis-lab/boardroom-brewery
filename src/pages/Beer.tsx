@@ -1,24 +1,11 @@
-import { useEffect } from 'react'
 import { ExternalLink } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import Button from '../components/Button'
-import { beers, untappd, beerGallery } from '../data/site'
+import { beers, beerGallery } from '../data/site'
 import CountUp from '../components/CountUp'
 import ImageAutoSlider from '../components/ImageAutoSlider'
 
-declare global { interface Window { PreloadEmbedMenu?: (id: string, a: number, b: number) => void } }
-
 export default function Beer() {
-  useEffect(() => {
-    const load = () => { try { window.PreloadEmbedMenu?.('menu-container', untappd.menuId, untappd.sectionId) } catch { /* ignore */ } }
-    if (window.PreloadEmbedMenu) { load(); return }
-    const s = document.createElement('script')
-    s.src = 'https://embed-menu-preloader.untappdapi.com/embed-menu-preloader.min.js'
-    s.async = true
-    s.onload = load
-    document.body.appendChild(s)
-  }, [])
-
   return (
     <>
       <section className="relative flex min-h-[48vh] items-center overflow-hidden">
@@ -86,10 +73,15 @@ export default function Beer() {
       {/* Live Untappd menu */}
       <section className="border-t border-outline-variant bg-surface py-20 md:py-24">
         <div className="container-x">
-          <SectionHeading title="What's On Tap Right Now" intro="Pulled straight from our Untappd menu, always current." />
+          <SectionHeading title="What's On Tap Right Now" intro="Updated by us in real time, always current." />
           <div className="mx-auto mt-12 max-w-3xl rounded-[3px] border border-outline-variant bg-surface-card p-4 md:p-8">
-            <div id="menu-container" className="untappd-embed min-h-[200px]" />
-            <noscript><p className="text-center text-body-md text-on-surface-variant">Enable JavaScript to view our live tap list, or check us out on Untappd.</p></noscript>
+            {/* The client's own menu app: he updates it, the site reflects it. */}
+            <iframe
+              src="https://taproom-menus.netlify.app/menu.html?venue=taproom"
+              title="Live beer menu"
+              loading="lazy"
+              className="mx-auto block h-[800px] w-full max-w-[720px] border-0"
+            />
           </div>
           <div className="mt-8 text-center"><Button href="https://untappd.com/" variant="outline">View on Untappd <ExternalLink size={15} /></Button></div>
         </div>
