@@ -86,6 +86,8 @@ export type PageMeta = {
   canonical: string
   ogImage: string
   jsonLd: object[]
+  // Staff-only surfaces: rendered, but kept out of search and the sitemap.
+  noindex?: boolean
 }
 
 const crumb = (name: string, path: string) =>
@@ -182,6 +184,15 @@ export function getPageMeta(rawPath: string): PageMeta {
         ogImage,
         jsonLd: [...base, crumb('Welcome', '/qrscan')],
       }
+    case '/manage':
+      return {
+        title: 'Tap List Manager | Boardroom Brewery',
+        description: 'Staff tool for updating the beers shown on the Boardroom Brewery website.',
+        canonical: pageUrl('/manage'),
+        ogImage,
+        jsonLd: [],
+        noindex: true,
+      }
     case '/contact':
       return {
         title: 'Contact & Visit | Boardroom Brewery, El Segundo',
@@ -226,5 +237,5 @@ export function getPageMeta(rawPath: string): PageMeta {
 }
 
 export const ALL_ROUTES: string[] = [
-  '/', '/beer', '/wine', '/taproom', '/events', '/run-club', '/private-events', '/gallery', '/qrscan', '/contact', '/privacy', '/terms', '/accessibility',
+  '/', '/beer', '/wine', '/taproom', '/events', '/run-club', '/private-events', '/gallery', '/qrscan', '/contact', '/privacy', '/terms', '/accessibility', '/manage',
 ]

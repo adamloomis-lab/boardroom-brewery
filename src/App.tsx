@@ -23,6 +23,7 @@ import Accessibility from './pages/Accessibility'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import NotFound from './pages/NotFound'
+import Manage from './pages/Manage'
 
 function Shell() {
   const [location] = useLocation()
@@ -66,10 +67,25 @@ function Shell() {
   )
 }
 
+// The tap-list manager is a tool for the taproom, not a page for guests, so it
+// runs outside the Shell (no nav, footer, age gate, or cookie notice).
+function Root() {
+  const [location] = useLocation()
+  if (location === '/manage' || location === '/manage/') {
+    return (
+      <>
+        <Seo path="/manage" />
+        <Manage />
+      </>
+    )
+  }
+  return <Shell />
+}
+
 export default function App({ ssrPath }: { readonly ssrPath?: string }) {
   return (
     <Router ssrPath={ssrPath}>
-      <Shell />
+      <Root />
     </Router>
   )
 }

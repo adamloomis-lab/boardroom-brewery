@@ -1,20 +1,21 @@
 import { Link } from 'wouter'
 import { MoveRight } from 'lucide-react'
-import { beers } from '../data/site'
+import { useTapList } from '../hooks/useTapList'
 
 // Image-card bento grid (design ref: the blog-posts component) using their beer
 // photos. Featured pour = tall left card; the rest fill the 2x2 on the right.
 export default function BeerShowcase() {
+  const { beers } = useTapList()
   return (
     <div className="grid auto-rows-[220px] md:auto-rows-[280px] gap-4 md:grid-cols-2 lg:grid-cols-3">
       {beers.map((b) => {
         const featured = b.featured
         return (
           <Link
-            key={b.name}
+            key={b.id}
             href="/beer"
-            style={{ backgroundImage: `url(${b.image})` }}
-            className={`group relative flex flex-col justify-end overflow-hidden rounded-[3px] border border-outline-variant bg-cover bg-center p-6 text-white transition-transform duration-300 hover:scale-[0.99] ${featured ? 'lg:row-span-2' : ''}`}
+            style={b.image ? { backgroundImage: `url(${b.image})` } : undefined}
+            className={`group relative flex flex-col justify-end overflow-hidden rounded-[3px] border border-outline-variant bg-surface-container-high bg-cover bg-center p-6 text-white transition-transform duration-300 hover:scale-[0.99] ${featured ? 'lg:row-span-2' : ''}`}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent transition-all duration-500 group-hover:from-black/95" />
             <div className="relative flex items-end justify-between gap-3">

@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "preview"],
       "port": 5198
+    },
+    {
+      "name": "netlify-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "netlify-cli@22", "dev", "--port", "8891", "--no-open"],
+      "port": 8891
     }
   ]
 }

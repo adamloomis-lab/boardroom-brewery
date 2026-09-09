@@ -60,6 +60,7 @@ for (const route of ALL_ROUTES) {
       `<meta name="description" content="${esc(meta.description)}" />`,
     )
     .replace('<!--SEO_HEAD-->', headBlock(meta))
+    .replace(/<meta\s+name="robots"[^>]*>/, meta.noindex ? '<meta name="robots" content="noindex, nofollow" />' : '$&')
     .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
 
   const outPath = route === '/' ? join(DIST, 'index.html') : join(DIST, route, 'index.html')
@@ -87,9 +88,9 @@ function lastmodFor(route) {
   } catch { /* no git in CI checkout depth 0: fall back */ }
   return new Date().toISOString().slice(0, 10)
 }
-// /qrscan is a utility surface for people already in the room: prerendered,
-// but not something search should list.
-const SITEMAP_ROUTES = ALL_ROUTES.filter((r) => r !== '/qrscan')
+// /qrscan is a utility surface for people already in the room and /manage is
+// the taproom's own tool: prerendered, but not something search should list.
+const SITEMAP_ROUTES = ALL_ROUTES.filter((r) => r !== '/qrscan' && !getPageMeta(r).noindex)
 const sitemap =
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
   `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
@@ -104,7 +105,7 @@ writeFileSync(join(DIST, 'sitemap.xml'), sitemap)
 writeFileSync(join(DIST, 'llms.txt'), llmsTxt())
 writeFileSync(join(DIST, 'llms-full.txt'), llmsFullTxt())
 
-const robots = `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`
+const robots = `User-agent: *\nAllow: /\nDisallow: /manage\n\nSitemap: ${SITE_URL}/sitemap.xml\n`
 writeFileSync(join(DIST, 'robots.txt'), robots)
 
 console.log(`✓ Prerendered ${count} routes + sitemap.xml + robots.txt + llms.txt + llms-full.txt`)

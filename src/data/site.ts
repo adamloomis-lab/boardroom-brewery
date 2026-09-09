@@ -2,6 +2,7 @@
 // Boardroom Brewery at Arena — single source of truth for all site content.
 // El Segundo, CA. Craft beer, hard seltzer, natural-style wine, brewed on-site.
 // ---------------------------------------------------------------------------
+import taplist from './taplist.json'
 
 export const company = {
   name: 'Boardroom Brewery',
@@ -71,59 +72,11 @@ export const distinctions = [
 // Untappd live menu embed (their real beer list). Used on the Beer page.
 export const untappd = { menuId: 49131, sectionId: 174855 }
 
-// Flagship + rotating pours (from the taproom menu). Untappd is the live source.
-export type Beer = { name: string; abv: string; tag: string; style: string; notes: string; flavors: string[]; image?: string; featured?: boolean }
-// Curated preview of the lineup (photos are theirs). The Untappd embed is the
-// live source of truth for exactly what's pouring today.
-export const beers: Beer[] = [
-  {
-    name: 'Hazy Juicy IPA',
-    abv: '6.5%',
-    tag: 'Featured Pour',
-    style: 'New England IPA',
-    notes:
-      'Soft, juicy, and tropical, a pillowy mouthfeel loaded with citrus and stone-fruit hop character. Our most-poured hazy and the quintessential El Segundo pour.',
-    flavors: ['Juicy', 'Tropical', 'Soft'],
-    image: '/media/beer/hazy-juicy-ipa.jpg',
-    featured: true,
-  },
-  {
-    name: 'BBA Golden Stout',
-    abv: '7.2%',
-    tag: 'Seasonal',
-    style: 'Barrel-Aged Golden Stout',
-    notes: 'A smooth golden stout with vanilla, caramel, and a warm barrel finish. Rich without the heaviness.',
-    flavors: ['Smooth', 'Vanilla', 'Rich'],
-    image: '/media/beer/golden-stout.jpg',
-  },
-  {
-    name: 'Baja Lager',
-    abv: '4.2%',
-    tag: 'Core',
-    style: 'Mexican-Style Lager',
-    notes: 'Easy, crushable Mexican-style lager with a wedge of lime. The patio pour.',
-    flavors: ['Light', 'Crisp', 'Lime'],
-    image: '/media/beer/baja-lager.jpg',
-  },
-  {
-    name: 'Tropic Mango Sour',
-    abv: '5.6%',
-    tag: 'Core',
-    style: 'Fruited Kettle Sour',
-    notes: 'A bright kettle sour bursting with ripe mango. Tart, refreshing, and made for the sun.',
-    flavors: ['Mango', 'Tart', 'Bright'],
-    image: '/media/beer/mango-sour.jpg',
-  },
-  {
-    name: 'Pilsner',
-    abv: '4.7%',
-    tag: 'Core',
-    style: 'Czech-Style Pilsner',
-    notes: 'Crisp, clean, and classic. Soft bready malt with a snappy noble-hop bite. Always on.',
-    flavors: ['Crisp', 'Clean', 'Classic'],
-    image: '/media/beer/pilsner.jpg',
-  },
-]
+// Flagship + rotating pours. The taproom manages this list themselves at
+// /manage (stored in Netlify Blobs); taplist.json is the copy baked in at
+// build time so the prerendered pages match. Pages read it via useTapList().
+export type Beer = { id: string; name: string; abv: string; tag: string; style: string; notes: string; flavors: string[]; image?: string; featured?: boolean }
+export const beers: Beer[] = taplist.beers
 
 // ---------------------------------------------------------------------------
 // Wine program — natural-style, low-intervention wines (Lodi AVA, Ripon CA).
@@ -282,14 +235,10 @@ export const reviews = [
   },
 ]
 
-// Beer pictures pulled from their /BEER page — used in the beer-page scroller.
+// General beer shots for the beer-page scroller. Photos of specific beers come
+// from the tap list itself (useTapList), so a retired beer leaves with its picture.
 export const beerGallery = [
   '/media/gallery/beerpic.jpg',
-  '/media/beer/pilsner.jpg',
-  '/media/beer/baja-lager.jpg',
-  '/media/beer/hazy-juicy-ipa.jpg',
-  '/media/beer/golden-stout.jpg',
-  '/media/beer/mango-sour.jpg',
   '/media/beer/beer-photo-1.jpg',
   '/media/beer/beer-photo-2.jpg',
   '/media/beer/beer-photo-3.jpg',

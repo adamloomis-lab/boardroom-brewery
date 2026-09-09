@@ -16,6 +16,13 @@
   status = 301
   force = true
 
+# Beer photos the taproom uploads from /manage live in Netlify Blobs and are
+# served by the taplist-photo function under a clean path.
+[[redirects]]
+  from = "/tap-photos/*"
+  to = "/.netlify/functions/taplist-photo?id=:splat"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

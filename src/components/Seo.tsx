@@ -20,6 +20,7 @@ export default function Seo({ path }: { readonly path: string }) {
 
     document.title = meta.title
     setMeta('name', 'description', meta.description)
+    setMeta('name', 'robots', meta.noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large')
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (!canonical) {

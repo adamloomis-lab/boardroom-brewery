@@ -1,11 +1,12 @@
 import { ExternalLink } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import Button from '../components/Button'
-import { beers, beerGallery } from '../data/site'
+import { useTapList } from '../hooks/useTapList'
 import CountUp from '../components/CountUp'
 import ImageAutoSlider from '../components/ImageAutoSlider'
 
 export default function Beer() {
+  const { featured, rest, gallery } = useTapList()
   return (
     <>
       <section className="relative flex min-h-[48vh] items-center overflow-hidden">
@@ -34,8 +35,8 @@ export default function Beer() {
             </figure>
 
             <div className="flex flex-col">
-              {beers.filter((b) => b.featured).map((b) => (
-                <article key={b.name} className="border-b border-outline-variant pb-8">
+              {[featured].filter(Boolean).map((b) => (
+                <article key={b.id} className="border-b border-outline-variant pb-8">
                   <div className="flex items-baseline justify-between gap-4">
                     <h3 className="font-display text-headline-md font-bold text-cream">{b.name}</h3>
                     <span className="font-display text-headline-md font-bold text-gold"><CountUp value={b.abv} /></span>
@@ -46,8 +47,8 @@ export default function Beer() {
                 </article>
               ))}
               <div className="divide-y divide-outline-variant">
-                {beers.filter((b) => !b.featured).map((b) => (
-                  <article key={b.name} className="grid grid-cols-[1fr_auto] items-baseline gap-x-6 py-6">
+                {rest.map((b) => (
+                  <article key={b.id} className="grid grid-cols-[1fr_auto] items-baseline gap-x-6 py-6">
                     <div>
                       <h3 className="font-display text-headline-sm font-bold text-cream">{b.name}</h3>
                       <p className="mt-0.5 font-label text-[11px] uppercase tracking-[0.16em] text-on-surface-variant">{b.style}</p>
@@ -67,7 +68,7 @@ export default function Beer() {
         <div className="container-x">
           <SectionHeading title="Straight From the Tap" align="left" />
         </div>
-        <div className="mt-10"><ImageAutoSlider images={beerGallery} /></div>
+        <div className="mt-10"><ImageAutoSlider images={gallery} /></div>
       </section>
 
       {/* Live Untappd menu */}
