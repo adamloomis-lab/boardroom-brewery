@@ -314,8 +314,8 @@ function Editor({ onSignOut }: { readonly onSignOut: () => void }) {
                     </div>
                     <div className="flex shrink-0 flex-col gap-1.5 sm:flex-row">
                       <button type="button" onClick={() => update(beers.map((x) => ({ ...x, featured: x.id === b.id })))} aria-label={`Make ${b.name} the lead pour`} aria-pressed={b.featured} className={`${iconBtn} ${b.featured ? 'border-gold text-gold' : ''}`}><Star size={16} className={b.featured ? 'fill-gold' : ''} /></button>
-                      <button type="button" onClick={() => move(i, -1)} disabled={i === 0} aria-label={`Move ${b.name} up`} className={`${iconBtn} hidden sm:inline-flex`}><ArrowUp size={16} /></button>
-                      <button type="button" onClick={() => move(i, 1)} disabled={i === beers.length - 1} aria-label={`Move ${b.name} down`} className={`${iconBtn} hidden sm:inline-flex`}><ArrowDown size={16} /></button>
+                      <button type="button" onClick={() => move(i, -1)} disabled={i === 0} aria-label={`Move ${b.name} up`} className={`${iconBtn} max-sm:hidden`}><ArrowUp size={16} /></button>
+                      <button type="button" onClick={() => move(i, 1)} disabled={i === beers.length - 1} aria-label={`Move ${b.name} down`} className={`${iconBtn} max-sm:hidden`}><ArrowDown size={16} /></button>
                       <button type="button" onClick={() => { setConfirm(null); setEditing(toDraft(b)) }} aria-label={`Edit ${b.name}`} className={iconBtn}><Pencil size={16} /></button>
                       <button type="button" onClick={() => setConfirm(b.id)} aria-label={`Remove ${b.name}`} className={`${iconBtn} hover:border-error hover:text-error`}><Trash2 size={16} /></button>
                     </div>
