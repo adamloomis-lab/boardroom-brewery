@@ -14,15 +14,78 @@
         "forchi@boardroomatarena.com"
       ],
       "fields": [
-        { "id": "name", "label": "Name", "type": "text", "required": true, "width": "half" },
-        { "id": "phone", "label": "Phone", "type": "tel", "required": true, "width": "half" },
-        { "id": "email", "label": "Email", "type": "email", "required": true, "width": "full" },
-        { "id": "event-name", "label": "Event name", "type": "text", "required": true, "width": "full" },
-        { "id": "event-type", "label": "Event type", "type": "choice", "required": false, "width": "full", "options": ["Birthday", "Corporate", "Group outing", "Celebration", "Fundraiser", "Something else"] },
-        { "id": "event-date", "label": "Event date", "type": "date", "required": false, "width": "third" },
-        { "id": "start-time", "label": "Start time", "type": "time", "required": false, "width": "third" },
-        { "id": "guest-count", "label": "Guests", "type": "number", "required": false, "width": "third", "placeholder": "e.g. 40" },
-        { "id": "details", "label": "Tell us more about your event (optional)", "type": "textarea", "required": false, "width": "full" }
+        {
+          "id": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true,
+          "width": "half"
+        },
+        {
+          "id": "phone",
+          "label": "Phone",
+          "type": "tel",
+          "required": true,
+          "width": "half"
+        },
+        {
+          "id": "email",
+          "label": "Email",
+          "type": "email",
+          "required": true,
+          "width": "full"
+        },
+        {
+          "id": "event-name",
+          "label": "Event name",
+          "type": "text",
+          "required": true,
+          "width": "full"
+        },
+        {
+          "id": "event-type",
+          "label": "Event type",
+          "type": "choice",
+          "required": false,
+          "width": "full",
+          "options": [
+            "Birthday",
+            "Corporate",
+            "Group outing",
+            "Celebration",
+            "Fundraiser",
+            "Something else"
+          ]
+        },
+        {
+          "id": "event-date",
+          "label": "Event date",
+          "type": "date",
+          "required": false,
+          "width": "third"
+        },
+        {
+          "id": "start-time",
+          "label": "Start time",
+          "type": "time",
+          "required": false,
+          "width": "third"
+        },
+        {
+          "id": "guest-count",
+          "label": "Guests",
+          "type": "number",
+          "required": false,
+          "width": "third",
+          "placeholder": "e.g. 40"
+        },
+        {
+          "id": "details",
+          "label": "Tell us more about your event (optional)",
+          "type": "textarea",
+          "required": false,
+          "width": "full"
+        }
       ]
     },
     "contact": {
@@ -35,11 +98,48 @@
         "forchi@boardroomatarena.com"
       ],
       "fields": [
-        { "id": "name", "label": "Name", "type": "text", "required": true, "width": "half" },
-        { "id": "phone", "label": "Phone", "type": "tel", "required": false, "width": "half" },
-        { "id": "email", "label": "Email", "type": "email", "required": true, "width": "full" },
-        { "id": "subject", "label": "What's this about?", "type": "choice", "required": false, "width": "full", "options": ["General question", "Private event", "Beer & taproom", "Group visit", "Something else"] },
-        { "id": "message", "label": "How can we help?", "type": "textarea", "required": true, "width": "full" }
+        {
+          "id": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true,
+          "width": "half"
+        },
+        {
+          "id": "phone",
+          "label": "Phone",
+          "type": "tel",
+          "required": false,
+          "width": "half"
+        },
+        {
+          "id": "email",
+          "label": "Email",
+          "type": "email",
+          "required": true,
+          "width": "full"
+        },
+        {
+          "id": "subject",
+          "label": "What's this about?",
+          "type": "choice",
+          "required": false,
+          "width": "full",
+          "options": [
+            "General question",
+            "Private event",
+            "Beer & taproom",
+            "Group visit",
+            "Something else"
+          ]
+        },
+        {
+          "id": "message",
+          "label": "How can we help?",
+          "type": "textarea",
+          "required": true,
+          "width": "full"
+        }
       ]
     }
   }
