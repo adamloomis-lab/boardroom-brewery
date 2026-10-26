@@ -23,16 +23,40 @@ import Accessibility from './pages/Accessibility'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import NotFound from './pages/NotFound'
-import Manage from './pages/Manage'
+
+function scrollToHash(): boolean {
+  if (typeof window === 'undefined') return false
+  const id = decodeURIComponent(window.location.hash.slice(1))
+  const el = id ? document.getElementById(id) : null
+  if (!el) return false
+  const l = getLenis()
+  if (l) l.scrollTo(el, { offset: -96 })
+  else el.scrollIntoView()
+  return true
+}
 
 function Shell() {
   const [location] = useLocation()
   useSmoothScroll()
+  // Route changes land at the top, or at the #hash target when the link
+  // carries one (the "Reserve a Table" link points at /taproom#reserve).
   useEffect(() => {
+    if (scrollToHash()) return
     const l = getLenis()
     if (l) l.scrollTo(0, { immediate: true })
     else window.scrollTo(0, 0)
   }, [location])
+  // Same-page hash links do not change wouter's location, so listen for the
+  // pushState wouter fires and the browser's own hashchange.
+  useEffect(() => {
+    const onNav = () => { scrollToHash() }
+    window.addEventListener('pushState', onNav)
+    window.addEventListener('hashchange', onNav)
+    return () => {
+      window.removeEventListener('pushState', onNav)
+      window.removeEventListener('hashchange', onNav)
+    }
+  }, [])
   useScrollReveal(location)
   useParallax(location)
   return (
@@ -67,18 +91,7 @@ function Shell() {
   )
 }
 
-// The tap-list manager is a tool for the taproom, not a page for guests, so it
-// runs outside the Shell (no nav, footer, age gate, or cookie notice).
 function Root() {
-  const [location] = useLocation()
-  if (location === '/manage' || location === '/manage/') {
-    return (
-      <>
-        <Seo path="/manage" />
-        <Manage />
-      </>
-    )
-  }
   return <Shell />
 }
 

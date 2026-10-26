@@ -1,8 +1,398 @@
 {
   "editable": [
+    "bookings",
+    "taplist",
+    "menu",
+    "events",
+    "photos",
+    "gallery",
+    "hours",
+    "holidays",
+    "banner",
     "forms"
   ],
   "netlifySiteId": "4797c163-8656-45f7-acdf-0042efdb8909",
+  "publishedAt": null,
+  "banner": {
+    "enabled": false,
+    "message": "",
+    "link": ""
+  },
+  "hours": [
+    {
+      "day": "Monday",
+      "short": "Mon",
+      "dow": 1,
+      "time": "Closed"
+    },
+    {
+      "day": "Tuesday",
+      "short": "Tue",
+      "dow": 2,
+      "time": "4:00 pm - 8:00 pm"
+    },
+    {
+      "day": "Wednesday",
+      "short": "Wed",
+      "dow": 3,
+      "time": "4:00 pm - 9:00 pm"
+    },
+    {
+      "day": "Thursday",
+      "short": "Thu",
+      "dow": 4,
+      "time": "4:00 pm - 9:00 pm"
+    },
+    {
+      "day": "Friday",
+      "short": "Fri",
+      "dow": 5,
+      "time": "3:00 pm - 10:00 pm"
+    },
+    {
+      "day": "Saturday",
+      "short": "Sat",
+      "dow": 6,
+      "time": "12:00 pm - 10:00 pm"
+    },
+    {
+      "day": "Sunday",
+      "short": "Sun",
+      "dow": 0,
+      "time": "12:00 pm - 8:00 pm"
+    }
+  ],
+  "hoursOverride": null,
+  "holidayHours": [],
+  "events": [],
+  "taplist": {
+    "updatedAt": "2026-09-09T00:19:47.518Z",
+    "beers": [
+      {
+        "id": "hazy-juicy-ipa",
+        "name": "Hazy Juicy IPA",
+        "abv": "6.5%",
+        "tag": "Featured Pour",
+        "style": "New England IPA",
+        "notes": "Soft, juicy, and tropical, a pillowy mouthfeel loaded with citrus and stone-fruit hop character. Our most-poured hazy and the quintessential El Segundo pour.",
+        "flavors": [
+          "Juicy",
+          "Tropical",
+          "Soft"
+        ],
+        "image": "/media/beer/hazy-juicy-ipa.jpg",
+        "featured": true,
+        "price": "",
+        "soldOut": false
+      },
+      {
+        "id": "bba-golden-stout",
+        "name": "BBA Golden Stout",
+        "abv": "7.2%",
+        "tag": "Seasonal",
+        "style": "Barrel-Aged Golden Stout",
+        "notes": "A smooth golden stout with vanilla, caramel, and a warm barrel finish. Rich without the heaviness.",
+        "flavors": [
+          "Smooth",
+          "Vanilla",
+          "Rich"
+        ],
+        "image": "/media/beer/golden-stout.jpg",
+        "featured": false,
+        "price": "",
+        "soldOut": false
+      },
+      {
+        "id": "baja-lager",
+        "name": "Baja Lager",
+        "abv": "4.2%",
+        "tag": "Core",
+        "style": "Mexican-Style Lager",
+        "notes": "Easy, crushable Mexican-style lager with a wedge of lime. The patio pour.",
+        "flavors": [
+          "Light",
+          "Crisp",
+          "Lime"
+        ],
+        "image": "/media/beer/baja-lager.jpg",
+        "featured": false,
+        "price": "",
+        "soldOut": false
+      },
+      {
+        "id": "tropic-mango-sour",
+        "name": "Tropic Mango Sour",
+        "abv": "5.6%",
+        "tag": "Core",
+        "style": "Fruited Kettle Sour",
+        "notes": "A bright kettle sour bursting with ripe mango. Tart, refreshing, and made for the sun.",
+        "flavors": [
+          "Mango",
+          "Tart",
+          "Bright"
+        ],
+        "image": "/media/beer/mango-sour.jpg",
+        "featured": false,
+        "price": "",
+        "soldOut": false
+      },
+      {
+        "id": "pilsner",
+        "name": "Pilsner",
+        "abv": "4.7%",
+        "tag": "Core",
+        "style": "Czech-Style Pilsner",
+        "notes": "Crisp, clean, and classic. Soft bready malt with a snappy noble-hop bite. Always on.",
+        "flavors": [
+          "Crisp",
+          "Clean",
+          "Classic"
+        ],
+        "image": "/media/beer/pilsner.jpg",
+        "featured": false,
+        "price": "",
+        "soldOut": false
+      }
+    ]
+  },
+  "menu": {
+    "wines": [
+      {
+        "id": "cab-1",
+        "name": "1st Offering: Cabernet Sauvignon",
+        "released": "Released October 23, 2025",
+        "status": "Sold out, only 108 bottles",
+        "soldOut": true,
+        "price": "",
+        "notes": "A 100% California Cabernet Sauvignon. Fruit-forward, easy to drink and fun to enjoy, with notes of stone fruit, cherry, even cranberry. Let it open up and you find violet florals. Slightly jammy, very drinkable, with low tannin, none of that dry mouth so traditional to California Cabernet."
+      },
+      {
+        "id": "cab-2",
+        "name": "2nd Offering: Cabernet Sauvignon",
+        "released": "Released February 3, 2026",
+        "status": "600 bottles in this batch. Don’t miss it",
+        "soldOut": false,
+        "price": "",
+        "notes": "Another 100% California Cabernet that hits classic big-Cali Cab on the nose: ripe blackberry jam, dark cherry, and plum compote leap from the glass. Subtle vanilla and baking spice from American-oak aging, with delicate hints of cassis and dried herbs. Inviting and fruit-forward without crossing into cloying territory. Finishes dry and leaves you wanting more."
+      }
+    ]
+  },
+  "gallery": [
+    {
+      "src": "/media/gallery/taproom.jpg",
+      "alt": "Inside the Boardroom Brewery brewhouse in El Segundo"
+    },
+    {
+      "src": "/media/gallery/beerpic.jpg",
+      "alt": "A fresh Boardroom Brewery pour out front in El Segundo"
+    },
+    {
+      "src": "/media/gallery/br-01.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (1)"
+    },
+    {
+      "src": "/media/gallery/br-02.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (2)"
+    },
+    {
+      "src": "/media/gallery/br-03.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (3)"
+    },
+    {
+      "src": "/media/gallery/br-04.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (4)"
+    },
+    {
+      "src": "/media/gallery/br-05.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (5)"
+    },
+    {
+      "src": "/media/gallery/br-06.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (6)"
+    },
+    {
+      "src": "/media/gallery/br-07.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (7)"
+    },
+    {
+      "src": "/media/gallery/br-08.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (8)"
+    },
+    {
+      "src": "/media/gallery/br-09.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (9)"
+    },
+    {
+      "src": "/media/gallery/br-10.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (10)"
+    },
+    {
+      "src": "/media/gallery/br-11.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (11)"
+    },
+    {
+      "src": "/media/gallery/br-12.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (12)"
+    },
+    {
+      "src": "/media/gallery/br-13.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (13)"
+    },
+    {
+      "src": "/media/gallery/br-14.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (14)"
+    },
+    {
+      "src": "/media/gallery/br-15.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (15)"
+    },
+    {
+      "src": "/media/gallery/br-16.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (16)"
+    },
+    {
+      "src": "/media/gallery/br-17.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (17)"
+    },
+    {
+      "src": "/media/gallery/br-18.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (18)"
+    },
+    {
+      "src": "/media/gallery/br-19.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (19)"
+    },
+    {
+      "src": "/media/gallery/br-20.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (20)"
+    },
+    {
+      "src": "/media/gallery/br-21.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (21)"
+    },
+    {
+      "src": "/media/gallery/br-22.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (22)"
+    },
+    {
+      "src": "/media/gallery/br-23.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (23)"
+    },
+    {
+      "src": "/media/gallery/br-24.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (24)"
+    },
+    {
+      "src": "/media/gallery/br-25.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (25)"
+    },
+    {
+      "src": "/media/gallery/br-26.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (26)"
+    },
+    {
+      "src": "/media/gallery/br-27.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (27)"
+    },
+    {
+      "src": "/media/gallery/br-28.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (28)"
+    },
+    {
+      "src": "/media/gallery/br-29.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (29)"
+    },
+    {
+      "src": "/media/gallery/br-30.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (30)"
+    },
+    {
+      "src": "/media/gallery/br-31.jpg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (31)"
+    },
+    {
+      "src": "/media/gallery/br-32.jpeg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (32)"
+    },
+    {
+      "src": "/media/gallery/br-33.jpeg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (33)"
+    },
+    {
+      "src": "/media/gallery/br-34.jpeg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (34)"
+    },
+    {
+      "src": "/media/gallery/br-35.jpeg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (35)"
+    },
+    {
+      "src": "/media/gallery/br-36.jpeg",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (36)"
+    },
+    {
+      "src": "/media/gallery/br-37.png",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (37)"
+    },
+    {
+      "src": "/media/gallery/br-38.png",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (38)"
+    },
+    {
+      "src": "/media/gallery/br-39.png",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (39)"
+    },
+    {
+      "src": "/media/gallery/br-40.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (40)"
+    },
+    {
+      "src": "/media/gallery/br-41.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (41)"
+    },
+    {
+      "src": "/media/gallery/br-42.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (42)"
+    },
+    {
+      "src": "/media/gallery/br-43.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (43)"
+    },
+    {
+      "src": "/media/gallery/br-44.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (44)"
+    },
+    {
+      "src": "/media/gallery/br-45.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (45)"
+    },
+    {
+      "src": "/media/gallery/br-46.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (46)"
+    },
+    {
+      "src": "/media/gallery/br-47.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (47)"
+    },
+    {
+      "src": "/media/gallery/br-48.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (48)"
+    },
+    {
+      "src": "/media/gallery/br-49.webp",
+      "alt": "Boardroom Brewery taproom, beer, and events in El Segundo (49)"
+    }
+  ],
+  "pageImages": {
+    "home": "/media/gallery/br-01.jpg",
+    "beer": "/media/beer/beer-photo-1.jpg",
+    "wine": "/media/gallery/br-15.jpg",
+    "taproom": "/media/gallery/br-22.jpg",
+    "events": "/media/gallery/br-44.webp",
+    "runClub": "/media/events/img-1116.png",
+    "privateEvents": "/media/gallery/br-12.jpg",
+    "gallery": "/media/gallery/br-08.jpg"
+  },
   "forms": {
     "private-events": {
       "title": "Event inquiry form",
@@ -138,6 +528,68 @@
           "label": "How can we help?",
           "type": "textarea",
           "required": true,
+          "width": "full"
+        }
+      ]
+    },
+    "reservation": {
+      "title": "Reservation form",
+      "page": "/taproom",
+      "submitLabel": "Request a Table",
+      "successTitle": "Request received!",
+      "successMessage": "We've got your reservation request and will confirm by text or email shortly. Need it sooner? Give us a call.",
+      "notify": [
+        "forchi@boardroomatarena.com"
+      ],
+      "fields": [
+        {
+          "id": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true,
+          "width": "half"
+        },
+        {
+          "id": "phone",
+          "label": "Phone",
+          "type": "tel",
+          "required": true,
+          "width": "half"
+        },
+        {
+          "id": "email",
+          "label": "Email",
+          "type": "email",
+          "required": true,
+          "width": "full"
+        },
+        {
+          "id": "date",
+          "label": "Date",
+          "type": "date",
+          "required": true,
+          "width": "third"
+        },
+        {
+          "id": "time",
+          "label": "Time",
+          "type": "time",
+          "required": true,
+          "width": "third"
+        },
+        {
+          "id": "party",
+          "label": "Party size",
+          "type": "number",
+          "required": true,
+          "width": "third",
+          "placeholder": "6"
+        },
+        {
+          "id": "notes",
+          "label": "Anything we should know?",
+          "type": "textarea",
+          "required": false,
           "width": "full"
         }
       ]

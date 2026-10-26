@@ -3,7 +3,9 @@ import type { FormEvent } from 'react'
 import { ArrowRight, Beer as BeerIcon, MapPin, Check } from 'lucide-react'
 import Button from '../components/Button'
 import SectionHeading from '../components/SectionHeading'
-import { company, events } from '../data/site'
+import { company, events, pageImages } from '../data/site'
+import { useUpcoming } from '../hooks/useUpcoming'
+import { fmtEventTag, fmtEventWhen } from '../lib/dates'
 import ImageAutoSlider from '../components/ImageAutoSlider'
 import Reviews from '../components/Reviews'
 import Marquee from '../components/Marquee'
@@ -49,11 +51,18 @@ function Newsletter() {
 }
 
 export default function Home() {
+  // Up to two dated events lead the "What's Happening" list, then the
+  // recurring program fills to four.
+  const { events: dated } = useUpcoming()
+  const happening = [
+    ...dated.slice(0, 2).map((e) => ({ key: e.id, tag: fmtEventTag(e.starts_at), title: e.title, desc: e.description || '', when: fmtEventWhen(e.starts_at, e.ends_at) })),
+    ...events.map((e) => ({ key: e.title, tag: e.tag, title: e.title, desc: e.desc, when: e.when })),
+  ].slice(0, 4)
   return (
     <>
       {/* HERO */}
       <section id="hero" className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
-        <video className="absolute inset-0 h-full w-full object-cover brightness-[1.18] contrast-[1.03]" autoPlay muted loop playsInline poster="/media/gallery/br-01.jpg" aria-hidden="true">
+        <video className="absolute inset-0 h-full w-full object-cover brightness-[1.18] contrast-[1.03]" autoPlay muted loop playsInline poster={pageImages.home || '/media/gallery/br-01.jpg'} aria-hidden="true">
           <source src="/media/video/brewery-1.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/15" />
@@ -109,9 +118,9 @@ export default function Home() {
           <div className="reveal">
             <h2 className="font-display text-display-lg-mobile font-bold leading-none text-cream md:text-[54px]">What's Happening at Boardroom</h2>
             <div className="mt-10 space-y-6">
-              {events.map((e) => (
-                <div key={e.title} className="flex gap-5 border-b border-white/5 pb-6">
-                  <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded border-t-2 border-gold bg-surface-card font-label text-[10px] uppercase text-gold">{e.tag}</div>
+              {happening.map((e) => (
+                <div key={e.key} className="flex gap-5 border-b border-white/5 pb-6">
+                  <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded border-t-2 border-gold bg-surface-card px-1 text-center font-label text-[10px] uppercase leading-tight text-gold">{e.tag}</div>
                   <div><h4 className="font-display text-headline-sm font-semibold text-cream">{e.title}</h4><p className="mt-1 text-sm text-on-surface-variant">{e.desc}</p><span className="mt-2 inline-block font-label text-[11px] uppercase tracking-widest text-gold">{e.when}</span></div>
                 </div>
               ))}
@@ -125,7 +134,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WATCH — clickable videos */}
+      {/* WATCH: clickable videos */}
       <section className="border-y border-outline-variant bg-surface py-20 md:py-24">
         <div className="container-x">
           <SectionHeading title="Inside the Boardroom" intro="A few moments from the taproom and the brews. Tap any video to play." />
@@ -137,7 +146,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GALLERY — infinite slider of every photo */}
+      {/* GALLERY: infinite slider of every photo */}
       <section className="py-20">
         <div className="container-x">
           <SectionHeading title="A Look Around" align="left" />

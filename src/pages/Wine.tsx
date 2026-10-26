@@ -1,13 +1,13 @@
 import { Grape, MapPin } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import Button from '../components/Button'
-import { wineIntro, wineRegion, wines } from '../data/site'
+import { wineIntro, wineRegion, wines, pageImages } from '../data/site'
 
 export default function Wine() {
   return (
     <>
       <section className="relative flex min-h-[48vh] items-center overflow-hidden">
-        <img src="/media/gallery/br-15.jpg" alt="Natural wine at Boardroom Brewery" className="kenburns absolute inset-0 h-full w-full object-cover" />
+        <img src={pageImages.wine || '/media/gallery/br-15.jpg'} alt="Natural wine at Boardroom Brewery" className="kenburns absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/72" />
         <div className="container-x relative z-10 pt-24 text-center">
           <h1 className="rise rise-2 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">The Wine List</h1>
@@ -37,12 +37,15 @@ export default function Wine() {
           <SectionHeading title="Now &amp; Coming Soon" />
           <div className="mt-12 grid gap-6 reveal-group md:grid-cols-2">
             {wines.map((w) => (
-              <article key={w.name} className="relative rounded-[3px] border border-outline-variant bg-surface-card p-8">
+              <article key={w.id || w.name} className="relative rounded-[3px] border border-outline-variant bg-surface-card p-8">
                 {w.soldOut && (<span className="absolute right-6 top-6 rounded-[3px] border border-gold/40 px-3 py-1 font-label text-[10px] font-bold uppercase tracking-widest text-gold/80">Sold Out</span>)}
                 <h3 className="max-w-[80%] font-display text-headline-sm font-bold text-cream">{w.name}</h3>
                 <p className="mt-1 font-label text-[11px] uppercase tracking-[0.16em] text-on-surface-variant">{w.released}</p>
                 <p className="mt-4 text-body-md text-on-surface-variant">{w.notes}</p>
-                <p className="mt-5 font-label text-[12px] font-semibold uppercase tracking-[0.14em] text-gold">{w.status}</p>
+                <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-label text-[12px] font-semibold uppercase tracking-[0.14em] text-gold">
+                  <span>{w.status}</span>
+                  {w.price && <span className="rounded-[3px] border border-gold/40 px-2.5 py-0.5 text-[11px] tracking-[0.16em]">{w.price}</span>}
+                </p>
               </article>
             ))}
           </div>

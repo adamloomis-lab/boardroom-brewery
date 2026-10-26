@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from 'lucide-react'
 import { company } from '../data/site'
 import HoursList from '../components/HoursList'
+import HolidayHours from '../components/HolidayHours'
 import ConfigForm from '../components/ConfigForm'
 
 export default function Contact() {
@@ -33,6 +34,7 @@ export default function Contact() {
             <div className="mt-10 rounded-[3px] border border-outline-variant bg-surface-card p-7">
               <div className="flex items-center gap-3"><Clock size={20} className="text-gold" /><h3 className="font-display text-headline-sm font-bold text-cream">Hours</h3></div>
               <HoursList className="mt-4 -mx-2" />
+              <HolidayHours className="mt-5 -mx-2 border-t border-outline-variant pt-5" />
             </div>
           </div>
           <div className="reveal">

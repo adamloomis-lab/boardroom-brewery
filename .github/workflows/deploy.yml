@@ -2,14 +2,11 @@ name: Deploy to Netlify
 
 # Auto-deploy on every push to main. Builds the SSG and pushes the prerendered
 # dist/ to the production Netlify site. Auth + site come from repo secrets.
-# The taplist function also fires `taplist-published` after the taproom
-# publishes a new tap list, so the prerendered beer pages get re-baked.
+# The taproom's dashboard commits src/site-content.json, which lands here too.
 on:
   push:
     branches: [main]
   workflow_dispatch:
-  repository_dispatch:
-    types: [taplist-published]
 
 concurrency:
   group: deploy-${{ github.ref }}

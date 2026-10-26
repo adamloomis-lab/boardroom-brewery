@@ -12,6 +12,7 @@ const explore = [
   { label: 'Events', href: '/events' },
   { label: 'Run Club', href: '/run-club' },
   { label: 'Private Events', href: '/private-events' },
+  { label: 'Reserve a Table', href: '/taproom#reserve' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ]

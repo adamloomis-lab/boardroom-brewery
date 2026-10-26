@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { X } from 'lucide-react'
-import { gallery, videos } from '../data/site'
+import { gallery, videos, pageImages } from '../data/site'
 
 export default function Gallery() {
   const [active, setActive] = useState<string | null>(null)
   return (
     <>
       <section className="relative flex min-h-[40vh] items-center overflow-hidden">
-        <img src="/media/gallery/br-08.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" aria-hidden="true" />
+        <img src={pageImages.gallery || '/media/gallery/br-08.jpg'} alt="" className="absolute inset-0 h-full w-full object-cover" aria-hidden="true" />
         <div className="absolute inset-0 bg-background/72" />
         <div className="container-x relative z-10 pt-24 text-center">
           <h1 className="rise rise-2 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">Gallery</h1>

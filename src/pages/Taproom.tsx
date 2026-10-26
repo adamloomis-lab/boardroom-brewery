@@ -2,13 +2,15 @@ import { Check, MapPin, Clock } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import Button from '../components/Button'
 import HoursList from '../components/HoursList'
-import { company, taproomFeatures, gallery } from '../data/site'
+import HolidayHours from '../components/HolidayHours'
+import ConfigForm from '../components/ConfigForm'
+import { company, taproomFeatures, gallery, pageImages } from '../data/site'
 
 export default function Taproom() {
   return (
     <>
       <section className="relative flex min-h-[56vh] items-center overflow-hidden">
-        <img src="/media/gallery/br-22.jpg" alt="The Boardroom Brewery taproom in El Segundo" className="kenburns absolute inset-0 h-full w-full object-cover" />
+        <img src={pageImages.taproom || '/media/gallery/br-22.jpg'} alt="The Boardroom Brewery taproom in El Segundo" className="kenburns absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/65" />
         <div className="container-x relative z-10 pt-24 text-center">
           <h1 className="rise rise-2 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">Come and Visit</h1>
@@ -36,6 +38,7 @@ export default function Taproom() {
             <div className="flex items-center gap-3"><Clock size={22} className="text-gold" /><h3 className="font-display text-headline-sm font-bold text-cream">Hours</h3></div>
             <p className="mt-2 text-body-md text-on-surface-variant">Open six days a week. Closed Mondays.</p>
             <HoursList className="mt-5 -mx-2" />
+            <HolidayHours className="mt-5 -mx-2 border-t border-outline-variant pt-5" />
           </div>
           <div className="reveal rounded-[3px] border border-outline-variant bg-surface-card p-8">
             <div className="flex items-center gap-3"><MapPin size={22} className="text-gold" /><h3 className="font-display text-headline-sm font-bold text-cream">Find Us</h3></div>
@@ -49,6 +52,21 @@ export default function Taproom() {
         </div>
         <div className="container-x mt-12 grid grid-cols-2 gap-3 reveal-group sm:grid-cols-4">
           {[{ src: '/media/gallery/taproom.jpg', alt: 'Inside the Boardroom brewhouse' }, { src: '/media/gallery/beerpic.jpg', alt: 'A Boardroom pour out front' }, ...gallery.slice(18, 24)].map((g) => (<img key={g.src} src={g.src} alt={g.alt} className="aspect-square w-full rounded object-cover" loading="lazy" />))}
+        </div>
+      </section>
+
+      {/* Table requests. Same card treatment as the private-events form. */}
+      <section id="reserve" className="scroll-mt-24 border-t border-outline-variant py-20 md:py-24">
+        <div className="container-x grid gap-14 lg:grid-cols-2">
+          <div className="reveal">
+            <h2 className="font-display text-headline-lg font-bold text-cream">Reserve a Table</h2>
+            <span className="gold-rule mt-5" />
+            <p className="mt-6 text-body-lg text-on-surface-variant">Groups of 6 or more can hold a table ahead of time. Send us the date, time and headcount and we'll set it aside. Walk-ins are always welcome, and we confirm every request by text or email.</p>
+            <p className="mt-4 text-body-md text-on-surface-variant">Need it sooner? Call <a href={company.phoneHref} className="text-cream hover:text-gold">{company.phone}</a>.</p>
+          </div>
+          <div className="reveal rounded-[3px] border border-outline-variant bg-surface-card p-8 md:p-10">
+            <ConfigForm name="reservation" idPrefix="res" />
+          </div>
         </div>
       </section>
     </>

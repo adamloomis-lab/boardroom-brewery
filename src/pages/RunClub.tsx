@@ -1,6 +1,6 @@
 import { Footprints, Clock, Route, Users } from 'lucide-react'
 import Button from '../components/Button'
-import { runClub, company } from '../data/site'
+import { runClub, company, pageImages } from '../data/site'
 
 export default function RunClub() {
   const facts = [
@@ -12,7 +12,7 @@ export default function RunClub() {
   return (
     <>
       <section className="relative flex min-h-[52vh] items-center overflow-hidden">
-        <img src="/media/events/img-1116.png" alt="Boardroom Brewery Run Club along the El Segundo strand" className="kenburns absolute inset-0 h-full w-full object-cover" />
+        <img src={pageImages.runClub || '/media/events/img-1116.png'} alt="Boardroom Brewery Run Club along the El Segundo strand" className="kenburns absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/72" />
         <div className="container-x relative z-10 pt-24 text-center">
           <h1 className="rise rise-2 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">Run Club</h1>

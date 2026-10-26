@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 5198 --strictPort",
-    "build": "node scripts/fetch-taplist.mjs && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server --emptyOutDir && node scripts/prerender.mjs && node scripts/check-seo.mjs",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server --emptyOutDir && node scripts/prerender.mjs && node scripts/check-seo.mjs",
     "preview": "vite preview --port 5198 --strictPort"
   },
   "dependencies": {

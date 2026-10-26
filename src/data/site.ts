@@ -1,8 +1,55 @@
 // ---------------------------------------------------------------------------
-// Boardroom Brewery at Arena — single source of truth for all site content.
+// Boardroom Brewery at Arena: single source of truth for all site content.
 // El Segundo, CA. Craft beer, hard seltzer, natural-style wine, brewed on-site.
+// Anything the taproom edits from its ALM Hub dashboard lives in
+// src/site-content.json and is derived below; the rest is fixed copy.
 // ---------------------------------------------------------------------------
-import taplist from './taplist.json'
+import content from '../site-content.json'
+import { todayLA } from '../lib/dates'
+
+export type HourRow = { day: string; short: string; dow: number; time: string }
+export type HolidayHour = { date: string; label: string; time: string }
+export type Banner = { enabled: boolean; message: string; link: string }
+export type SiteEvent = {
+  id: string
+  title: string
+  starts_at: string
+  ends_at?: string | null
+  description?: string | null
+  image_url?: string | null
+  featured?: boolean
+}
+export type Beer = {
+  id: string
+  name: string
+  abv: string
+  tag: string
+  style: string
+  notes: string
+  flavors: string[]
+  image?: string
+  featured?: boolean
+  price?: string
+  soldOut?: boolean
+}
+export type Wine = { id: string; name: string; released: string; status: string; soldOut: boolean; notes: string; price?: string }
+export type GalleryImage = { src: string; alt: string }
+export type PageImageKey = 'home' | 'beer' | 'wine' | 'taproom' | 'events' | 'runClub' | 'privateEvents' | 'gallery'
+
+type SiteContent = {
+  banner: Banner
+  hours: HourRow[]
+  hoursOverride: HourRow[] | null
+  holidayHours: HolidayHour[]
+  events: SiteEvent[]
+  taplist: { updatedAt: string; beers: Beer[] }
+  menu: { wines: Wine[] }
+  gallery: GalleryImage[]
+  pageImages: Partial<Record<PageImageKey, string>>
+}
+// The JSON's literal types (a null override, empty arrays) are narrower than
+// what the dashboard can write, so it is typed by the contract above.
+const site = content as unknown as SiteContent
 
 export const company = {
   name: 'Boardroom Brewery',
@@ -34,34 +81,78 @@ export const company = {
   },
 } as const
 
-// Real taproom hours (open 6 days, closed Mondays).
-export const hours = [
-  { day: 'Monday', short: 'Mon', dow: 1, time: 'Closed', closed: true },
-  { day: 'Tuesday', short: 'Tue', dow: 2, time: '4:00 pm - 8:00 pm' },
-  { day: 'Wednesday', short: 'Wed', dow: 3, time: '4:00 pm - 9:00 pm' },
-  { day: 'Thursday', short: 'Thu', dow: 4, time: '4:00 pm - 9:00 pm' },
-  { day: 'Friday', short: 'Fri', dow: 5, time: '3:00 pm - 10:00 pm' },
-  { day: 'Saturday', short: 'Sat', dow: 6, time: '12:00 pm - 10:00 pm' },
-  { day: 'Sunday', short: 'Sun', dow: 0, time: '12:00 pm - 8:00 pm' },
-]
+// Taproom hours. The dashboard's temporary override wins when it is set.
+export type Hour = HourRow & { closed: boolean }
+const isClosed = (t: string) => /^\s*closed\s*$/i.test(t)
+const activeHours: HourRow[] = site.hoursOverride && site.hoursOverride.length ? site.hoursOverride : site.hours
+export const hours: Hour[] = activeHours.map((h) => ({ ...h, closed: isClosed(h.time) }))
 
-export const hoursCompact = [
-  { day: 'Monday', time: 'Closed' },
-  { day: 'Tue', time: '4 PM - 8 PM' },
-  { day: 'Wed - Thu', time: '4 PM - 9 PM' },
-  { day: 'Friday', time: '3 PM - 10 PM' },
-  { day: 'Saturday', time: '12 PM - 10 PM' },
-  { day: 'Sunday', time: '12 PM - 8 PM' },
-]
+// "4:00 pm" -> "16:00". Returns null for anything that does not parse.
+function to24h(s: string): string | null {
+  const m = s.trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i)
+  if (!m) return null
+  let hh = Number(m[1]) % 12
+  if (m[3].toLowerCase() === 'pm') hh += 12
+  return `${String(hh).padStart(2, '0')}:${m[2] || '00'}`
+}
+// "4:00 pm - 8:00 pm" -> { opens: '16:00', closes: '20:00' }.
+function parseRange(time: string): { opens: string; closes: string } | null {
+  const parts = time.split(/\s*(?:-|to)\s*/i)
+  if (parts.length !== 2) return null
+  const opens = to24h(parts[0])
+  const closes = to24h(parts[1])
+  return opens && closes ? { opens, closes } : null
+}
+// "4:00 pm" -> "4 PM", "4:30 pm" -> "4:30 PM".
+const compactTime = (t: string) =>
+  isClosed(t) ? 'Closed' : t.replace(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)/gi, (_, h, m, ap) => `${h}${m && m !== '00' ? `:${m}` : ''} ${ap.toUpperCase()}`)
 
-// Schema.org openingHoursSpecification (Monday omitted = closed)
-export const openingHours = [
-  { days: ['Tuesday'], opens: '16:00', closes: '20:00' },
-  { days: ['Wednesday', 'Thursday'], opens: '16:00', closes: '21:00' },
-  { days: ['Friday'], opens: '15:00', closes: '22:00' },
-  { days: ['Saturday'], opens: '12:00', closes: '22:00' },
-  { days: ['Sunday'], opens: '12:00', closes: '20:00' },
-]
+// Consecutive days with the same hours collapse into one row ("Wed - Thu").
+function groupConsecutive<T>(rows: Hour[], key: (h: Hour) => T | null): { days: Hour[]; value: T }[] {
+  const out: { days: Hour[]; value: T }[] = []
+  for (const h of rows) {
+    const v = key(h)
+    if (v === null) continue
+    const last = out[out.length - 1]
+    const lastDow = last ? last.days[last.days.length - 1].dow : null
+    const consecutive = lastDow !== null && (h.dow === (lastDow + 1) % 7)
+    if (last && consecutive && JSON.stringify(last.value) === JSON.stringify(v)) last.days.push(h)
+    else out.push({ days: [h], value: v })
+  }
+  return out
+}
+
+export const hoursCompact: { day: string; time: string }[] = groupConsecutive(hours, (h) => compactTime(h.time)).map((g) => ({
+  day: g.days.length === 1 ? g.days[0].day : `${g.days[0].short} - ${g.days[g.days.length - 1].short}`,
+  time: g.value,
+}))
+
+// Schema.org openingHoursSpecification (closed days omitted).
+export const openingHours: { days: string[]; opens: string; closes: string }[] = groupConsecutive(hours, (h) =>
+  h.closed ? null : parseRange(h.time),
+).map((g) => ({ days: g.days.map((d) => d.day), opens: g.value.opens, closes: g.value.closes }))
+
+// Holiday exceptions. Only dates still ahead of us, soonest first.
+const allHolidayHours: HolidayHour[] = [...site.holidayHours].sort((a, b) => a.date.localeCompare(b.date))
+export const upcomingHolidayHours = (now: Date = new Date()): HolidayHour[] => {
+  const today = todayLA(now)
+  return allHolidayHours.filter((h) => h.date >= today)
+}
+export const holidayHours: HolidayHour[] = upcomingHolidayHours()
+
+// Announcement bar the taproom switches on from the dashboard.
+export const banner: Banner = site.banner
+
+// Dated events the taproom posts. Ones still running today stay listed.
+const eventEnd = (e: SiteEvent) => new Date(e.ends_at || e.starts_at).getTime()
+export const filterUpcomingEvents = (now: Date = new Date()): SiteEvent[] =>
+  site.events
+    .filter((e) => !Number.isNaN(eventEnd(e)) && eventEnd(e) >= now.getTime())
+    .sort((a, b) => a.starts_at.localeCompare(b.starts_at))
+export const upcomingEvents: SiteEvent[] = filterUpcomingEvents()
+
+// Hero image per page. Pages fall back to their original photo when unset.
+export const pageImages: Partial<Record<PageImageKey, string>> = site.pageImages || {}
 
 export const distinctions = [
   '100% brewed on-site on Arena Street',
@@ -72,14 +163,11 @@ export const distinctions = [
 // Untappd live menu embed (their real beer list). Used on the Beer page.
 export const untappd = { menuId: 49131, sectionId: 174855 }
 
-// Flagship + rotating pours. The taproom manages this list themselves at
-// /manage (stored in Netlify Blobs); taplist.json is the copy baked in at
-// build time so the prerendered pages match. Pages read it via useTapList().
-export type Beer = { id: string; name: string; abv: string; tag: string; style: string; notes: string; flavors: string[]; image?: string; featured?: boolean }
-export const beers: Beer[] = taplist.beers
+// Flagship + rotating pours, as the taproom last published them.
+export const beers: Beer[] = site.taplist.beers
 
 // ---------------------------------------------------------------------------
-// Wine program — natural-style, low-intervention wines (Lodi AVA, Ripon CA).
+// Wine program: natural-style, low-intervention wines (Lodi AVA, Ripon CA).
 // ---------------------------------------------------------------------------
 export const wineIntro =
   'At Boardroom Brewery in El Segundo, our wines reflect the same creativity and care that define our craft beers and seltzers. We focus on natural-style, low-intervention wines, thoughtfully sourced from independent producers across California. Every pour is guided by the same philosophy: minimal additives, maximum character, and an experience rooted in authenticity.'
@@ -90,27 +178,10 @@ export const wineRegion = {
     'Grown in the sandy-loam soils of the Lodi region, where warm Central Valley days meet cool Delta breezes. These conditions shape expressive, balanced, low-intervention wines of real character.',
 }
 
-export const wines = [
-  {
-    name: '1st Offering: Cabernet Sauvignon',
-    released: 'Released October 23, 2025',
-    status: 'Sold out, only 108 bottles',
-    soldOut: true,
-    notes:
-      'A 100% California Cabernet Sauvignon. Fruit-forward, easy to drink and fun to enjoy, with notes of stone fruit, cherry, even cranberry. Let it open up and you find violet florals. Slightly jammy, very drinkable, with low tannin, none of that dry mouth so traditional to California Cabernet.',
-  },
-  {
-    name: '2nd Offering: Cabernet Sauvignon',
-    released: 'Released February 3, 2026',
-    status: '600 bottles in this batch. Don’t miss it',
-    soldOut: false,
-    notes:
-      'Another 100% California Cabernet that hits classic big-Cali Cab on the nose: ripe blackberry jam, dark cherry, and plum compote leap from the glass. Subtle vanilla and baking spice from American-oak aging, with delicate hints of cassis and dried herbs. Inviting and fruit-forward without crossing into cloying territory. Finishes dry and leaves you wanting more.',
-  },
-] as const
+export const wines: Wine[] = site.menu.wines
 
 // ---------------------------------------------------------------------------
-// Run / walk club — Wednesdays from the taproom.
+// Run / walk club: Wednesdays from the taproom.
 // ---------------------------------------------------------------------------
 export const runClub = {
   day: 'Wednesdays',
@@ -187,21 +258,10 @@ export const events = [
 ]
 
 // ---------------------------------------------------------------------------
-// Gallery — every photo provided by the client (49 images), used in full.
+// Gallery: every photo, in the order the taproom arranges it. Sources may be
+// site paths or absolute URLs from dashboard uploads.
 // ---------------------------------------------------------------------------
-const galleryExt = (n: number) =>
-  n <= 31 ? 'jpg' : n <= 36 ? 'jpeg' : n <= 39 ? 'png' : 'webp'
-export const gallery = [
-  { src: '/media/gallery/taproom.jpg', alt: 'Inside the Boardroom Brewery brewhouse in El Segundo' },
-  { src: '/media/gallery/beerpic.jpg', alt: 'A fresh Boardroom Brewery pour out front in El Segundo' },
-  ...Array.from({ length: 49 }, (_, i) => {
-    const n = i + 1
-    return {
-      src: `/media/gallery/br-${String(n).padStart(2, '0')}.${galleryExt(n)}`,
-      alt: `Boardroom Brewery taproom, beer, and events in El Segundo (${n})`,
-    }
-  }),
-]
+export const gallery: GalleryImage[] = site.gallery
 
 // Hero / feature videos (client footage).
 export const videos = ['/media/video/brewery-1.mp4', '/media/video/brewery-2.mp4']

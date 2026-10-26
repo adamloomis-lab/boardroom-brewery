@@ -1,21 +1,51 @@
 import { ArrowRight } from 'lucide-react'
 import Button from '../components/Button'
-import { events, gallery } from '../data/site'
+import SectionHeading from '../components/SectionHeading'
+import { events, gallery, pageImages } from '../data/site'
 import ImageAutoSlider from '../components/ImageAutoSlider'
+import { useUpcoming } from '../hooks/useUpcoming'
+import { fmtEventWhen } from '../lib/dates'
 
 const eventsScroll = ['/media/events/img-1116.png', '/media/events/img-1107.png', ...gallery.slice(0, 18).map((g) => g.src)]
 
 export default function Events() {
+  const { events: dated } = useUpcoming()
+  // Featured events lead; the sort is stable so date order holds within each group.
+  const upcoming = [...dated].sort((a, b) => Number(!!b.featured) - Number(!!a.featured))
   return (
     <>
       <section className="relative flex min-h-[48vh] items-center overflow-hidden">
-        <img src="/media/gallery/br-44.webp" alt="Events at Boardroom Brewery" className="kenburns absolute inset-0 h-full w-full object-cover" />
+        <img src={pageImages.events || '/media/gallery/br-44.webp'} alt="Events at Boardroom Brewery" className="kenburns absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/70" />
         <div className="container-x relative z-10 pt-24 text-center">
           <h1 className="rise rise-2 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">Events &amp; Food Trucks</h1>
           <p className="rise rise-3 mx-auto mt-5 max-w-2xl text-body-lg text-on-surface">Run club, rotating food trucks, trivia and comedy, and big-screen watch parties. There's almost always something happening at the Boardroom.</p>
         </div>
       </section>
+
+      {/* Dated events the taproom posts from its dashboard. Nothing renders
+          when the list is empty, so the recurring program stands alone. */}
+      {upcoming.length > 0 && (
+        <section className="pt-20 md:pt-24">
+          <div className="container-x">
+            <SectionHeading title="Upcoming" align="left" />
+            <div className="mt-10 divide-y divide-outline-variant border-y border-outline-variant reveal-group">
+              {upcoming.map((e) => (
+                <article key={e.id} className={`grid gap-6 py-10 md:gap-10 md:py-12 ${e.image_url ? 'md:grid-cols-[1fr_300px]' : ''}`}>
+                  <div className="min-w-0">
+                    <p className="font-display text-body-md font-semibold uppercase tracking-[0.06em] text-gold">{fmtEventWhen(e.starts_at, e.ends_at)}</p>
+                    <h3 className="mt-2 font-display text-headline-md font-bold text-cream">{e.title}</h3>
+                    {e.description && <p className="mt-3 max-w-2xl whitespace-pre-line text-body-lg text-on-surface-variant">{e.description}</p>}
+                  </div>
+                  {e.image_url && (
+                    <img src={e.image_url} alt={e.title} loading="lazy" className="aspect-[4/3] w-full rounded-[3px] object-cover md:aspect-square" />
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* The weekly program as a ledger, not a row of matching cards. The
           cadence column does the organising; the divider rhythm does the

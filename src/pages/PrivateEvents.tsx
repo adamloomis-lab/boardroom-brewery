@@ -1,12 +1,12 @@
 import SectionHeading from '../components/SectionHeading'
-import { company, privateEvents } from '../data/site'
+import { company, privateEvents, pageImages } from '../data/site'
 import ConfigForm from '../components/ConfigForm'
 
 export default function PrivateEvents() {
   return (
     <>
       <section className="relative flex min-h-[52vh] items-center overflow-hidden">
-        <img src="/media/gallery/br-12.jpg" alt="Private event space at Boardroom Brewery near LAX" className="kenburns absolute inset-0 h-full w-full object-cover" />
+        <img src={pageImages.privateEvents || '/media/gallery/br-12.jpg'} alt="Private event space at Boardroom Brewery near LAX" className="kenburns absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/72" />
         <div className="container-x relative z-10 pt-24 text-center">
           <h1 className="rise rise-2 font-display text-display-lg-mobile font-extrabold text-cream md:text-display-lg">{privateEvents.headline}</h1>

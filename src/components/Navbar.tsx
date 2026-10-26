@@ -3,6 +3,7 @@ import { Link, useLocation } from 'wouter'
 import { Menu, Phone } from 'lucide-react'
 import Logo from './Logo'
 import MobileMenu from './MobileMenu'
+import AnnouncementBar from './AnnouncementBar'
 import { company } from '../data/site'
 import { useScrolled } from '../hooks/useScrolled'
 
@@ -17,6 +18,7 @@ const primary = [
 const all = [
   ...primary,
   { label: 'Private Events', href: '/private-events' },
+  { label: 'Reserve a Table', href: '/taproom#reserve' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -50,6 +52,7 @@ export default function Navbar() {
           <Menu size={28} />
         </button>
       </nav>
+      <AnnouncementBar />
       <MobileMenu open={open} onClose={() => setOpen(false)} links={all} />
     </header>
   )

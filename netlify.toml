@@ -16,12 +16,20 @@
   status = 301
   force = true
 
-# Beer photos the taproom uploads from /manage live in Netlify Blobs and are
-# served by the taplist-photo function under a clean path.
+# Beer photos uploaded through the retired tap-list tool still live in Netlify
+# Blobs and are served by the taplist-photo function under a clean path.
 [[redirects]]
   from = "/tap-photos/*"
   to = "/.netlify/functions/taplist-photo?id=:splat"
   status = 200
+
+# The old staff tap-list manager is gone; the taproom edits the site from its
+# ALM Hub dashboard now. Must sit BEFORE the SPA catch-all.
+[[redirects]]
+  from = "/manage"
+  to = "https://adamloomismarketing.com/login"
+  status = 302
+  force = true
 
 [[redirects]]
   from = "/*"
